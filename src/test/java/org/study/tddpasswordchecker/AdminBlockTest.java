@@ -42,4 +42,14 @@ public class AdminBlockTest {
                 () -> admin.unblock()
         ).isInstanceOf(NonBlockedException.class);
     }
+
+    @DisplayName("차단을 해제 하면 차단 상태가 아니게 된다.")
+    @Test
+    void unblock() {
+        Admin admin = new Admin();
+        admin.block();
+        admin.unblock();
+        assertThat(admin.isBlocked()).isFalse();
+    }
+
 }

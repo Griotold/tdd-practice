@@ -18,5 +18,6 @@ public class Admin {
         if (!blockState) {
             throw new NonBlockedException();
         }
+        blockState = false;
     }
 }
