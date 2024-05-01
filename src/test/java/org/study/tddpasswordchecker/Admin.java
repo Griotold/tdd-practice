@@ -8,6 +8,9 @@ public class Admin {
     }
 
     public void block() {
+        if (blockState) {
+            throw new AlreadyBlockedException();
+        }
         blockState = true;
     }
 }

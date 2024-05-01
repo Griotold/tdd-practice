@@ -1,8 +1,10 @@
 package org.study.tddpasswordchecker;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AdminBlockTest {
@@ -20,5 +22,17 @@ public class AdminBlockTest {
         Admin admin = new Admin();
         admin.block();
         assertThat(admin.isBlocked()).isTrue();
+    }
+
+    @DisplayName("이미 차단 상태인데 다시 차단하면 예외!")
+    @Test
+    void alreadyBlocked() {
+        Admin admin = new Admin();
+        admin.block();
+
+        assertThatCode(
+                () -> admin.block()
+        ).isInstanceOf(AlreadyBlockedException.class);
+
     }
 }
