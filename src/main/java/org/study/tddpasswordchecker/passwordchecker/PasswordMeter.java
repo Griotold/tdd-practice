@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker;
+package org.study.tddpasswordchecker.passwordchecker;
 
 public class PasswordMeter {
     public PasswordStrength meter(String pw) throws IllegalArgumentException {

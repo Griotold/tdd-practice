@@ -2,12 +2,14 @@ package org.study.tddpasswordchecker;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.study.tddpasswordchecker.passwordchecker.PasswordMeter;
+import org.study.tddpasswordchecker.passwordchecker.PasswordStrength;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class PasswordMeterTest {
-    private PasswordMeter passwordMeter = new PasswordMeter();
+    private final PasswordMeter passwordMeter = new PasswordMeter();
 
     @DisplayName("null 이면 예외 발생")
     @Test

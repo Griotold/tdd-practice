@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker;
+package org.study.tddpasswordchecker.passwordchecker;
 
 public enum PasswordStrength {
     NORMAL, WEAK, STRONG

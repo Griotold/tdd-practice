@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker;
+package org.study.tddpasswordchecker.adminblock;
 
 public class Admin {
     private boolean blockState;
