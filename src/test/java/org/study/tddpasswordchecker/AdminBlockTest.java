@@ -1,11 +1,10 @@
 package org.study.tddpasswordchecker;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 public class AdminBlockTest {
 
@@ -33,6 +32,14 @@ public class AdminBlockTest {
         assertThatCode(
                 () -> admin.block()
         ).isInstanceOf(AlreadyBlockedException.class);
+    }
 
+    @DisplayName("차단 상태가 아닌데 차단 해제하면 예외!")
+    @Test
+    void unblock_whenNotBlocked() {
+        Admin admin = new Admin();
+        assertThatCode(
+                () -> admin.unblock()
+        ).isInstanceOf(NonBlockedException.class);
     }
 }

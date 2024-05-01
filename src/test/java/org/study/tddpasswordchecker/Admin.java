@@ -13,4 +13,10 @@ public class Admin {
         }
         blockState = true;
     }
+
+    public void unblock() {
+        if (!blockState) {
+            throw new NonBlockedException();
+        }
+    }
 }
