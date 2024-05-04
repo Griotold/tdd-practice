@@ -11,6 +11,7 @@ public class NoteHighlightTest {
     void abc() throws Exception {
         assertThat(noteHighlight.highlight("abc")).isEqualTo("abc");
         assertThat(noteHighlight.highlight("efg")).isEqualTo("efg");
+        assertThat(noteHighlight.highlight("1 note")).isEqualTo("1 {note}");
     }
 
     @Test
