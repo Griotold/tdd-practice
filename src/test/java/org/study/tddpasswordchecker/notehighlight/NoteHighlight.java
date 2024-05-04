@@ -7,9 +7,19 @@ public class NoteHighlight {
         if (index == -1) {
             return str;
         }
-        if (index > 0 && str.toCharArray()[index - 1] == 'y') {
-            return str;
+        int preIndex = index - 1;
+        if (preIndex >= 0) {
+            char pre = str.charAt(preIndex);
+
+            if (isNonSpace(pre)) {
+                return str;
+            }
         }
+
         return str.replace("note", "{note}");
+    }
+
+    private static boolean isNonSpace(char ch) {
+        return (ch >= 'a' && ch <= 'y') || (ch >= '0' && ch <= '9');
     }
 }
