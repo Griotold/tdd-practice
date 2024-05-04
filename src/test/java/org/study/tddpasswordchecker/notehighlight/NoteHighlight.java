@@ -14,22 +14,12 @@ public class NoteHighlight {
 
     private boolean isPreCharacterNotSpace(String str, int index) {
         int preCharacterIndex = index - 1;
-
-        if (preCharacterIndex >= 0 && isNonSpace(str.charAt(preCharacterIndex))) {
-            return true;
-        }
-
-        return false;
+        return (preCharacterIndex >= 0 && isNonSpace(str.charAt(preCharacterIndex)));
     }
 
     private boolean isPostCharacterNotSpace(String str, int index) {
         int postCharacterIndex = index + "note".length();
-
-        if (postCharacterIndex < str.length() && isNonSpace(str.charAt(postCharacterIndex))) {
-            return true;
-        }
-
-        return false;
+        return (postCharacterIndex < str.length() && isNonSpace(str.charAt(postCharacterIndex))) ;
     }
 
     private boolean isNonSpace(char ch) {
