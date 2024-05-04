@@ -6,6 +6,6 @@ public class NoteHighlight {
         if (str.equals("note")) {
             return "{note}";
         }
-        return "abc";
+        return str;
     }
 }
