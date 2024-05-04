@@ -1,9 +1,7 @@
-package org.study.tddpasswordchecker;
+package org.study.tddpasswordchecker.passwordchecker;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.study.tddpasswordchecker.passwordchecker.PasswordMeter;
-import org.study.tddpasswordchecker.passwordchecker.PasswordStrength;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
