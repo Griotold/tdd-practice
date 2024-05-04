@@ -8,20 +8,32 @@ public class NoteHighlight {
             return str;
         }
         if (isPreCharacterNotSpace(str, index)) return str;
+        if (isPostCharacterNotSpace(str, index)) return str;
         return str.replace("note", "{note}");
     }
 
     private boolean isPreCharacterNotSpace(String str, int index) {
         int preCharacterIndex = index - 1;
 
-        if (preCharacterIndex >= 0) {
-            char ch = str.charAt(preCharacterIndex);
-            if (ch >= 'a' && ch <= 'z' ||(ch >= '0' && ch <= '9')) {
-                return true;
-            }
+        if (preCharacterIndex >= 0 && isNonSpace(str.charAt(preCharacterIndex))) {
+            return true;
         }
 
         return false;
+    }
+
+    private boolean isPostCharacterNotSpace(String str, int index) {
+        int postCharacterIndex = index + "note".length();
+
+        if (postCharacterIndex < str.length() && isNonSpace(str.charAt(postCharacterIndex))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isNonSpace(char ch) {
+        return (ch >= 'a' && ch <= 'z' || ch >= '0' && ch <= '9');
     }
 
 }
