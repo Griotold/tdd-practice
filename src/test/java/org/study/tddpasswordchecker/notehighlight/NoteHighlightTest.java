@@ -18,6 +18,7 @@ public class NoteHighlightTest {
         assertThat(noteHighlight.highlight("ke1note")).isEqualTo("ke1note");
         assertThat(noteHighlight.highlight("ke4note")).isEqualTo("ke4note");
         assertThat(noteHighlight.highlight("yes note1")).isEqualTo("yes note1");
+        assertThat(noteHighlight.highlight("yes notea")).isEqualTo("yes notea");
 
     }
 
