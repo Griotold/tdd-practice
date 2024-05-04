@@ -1,14 +1,20 @@
 package org.study.tddpasswordchecker.notehighlight;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NoteHighlightTest {
     NoteHighlight noteHighlight = new NoteHighlight();
 
     @Test
     void abc() throws Exception {
-        String highlightedAbc = noteHighlight.highlight("abc");
-        Assertions.assertThat(highlightedAbc).isEqualTo("abc");
+        assertThat(noteHighlight.highlight("abc")).isEqualTo("abc");
+    }
+
+    @Test
+    void note() throws Exception {
+        assertThat(noteHighlight.highlight("note")).isEqualTo("{note}");
+
     }
 }
