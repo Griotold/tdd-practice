@@ -7,19 +7,21 @@ public class NoteHighlight {
         if (index == -1) {
             return str;
         }
-        int preIndex = index - 1;
-        if (preIndex >= 0) {
-            char pre = str.charAt(preIndex);
-
-            if (isNonSpace(pre)) {
-                return str;
-            }
-        }
-
+        if (isPreCharacterNotSpace(str, index)) return str;
         return str.replace("note", "{note}");
     }
 
-    private static boolean isNonSpace(char ch) {
-        return (ch >= 'a' && ch <= 'y') || (ch >= '0' && ch <= '9');
+    private boolean isPreCharacterNotSpace(String str, int index) {
+        int preCharacterIndex = index - 1;
+
+        if (preCharacterIndex >= 0) {
+            char ch = str.charAt(preCharacterIndex);
+            if (ch >= 'a' && ch <= 'z' ||(ch >= '0' && ch <= '9')) {
+                return true;
+            }
+        }
+
+        return false;
     }
+
 }
