@@ -9,14 +9,17 @@ public class PasswordStrengthMeter {
             return PasswordStrength.NORMAL;
         }
 
-        boolean containsNumber = false;
-        for (char c : password.toCharArray()) {
-            if (Character.isDigit(c)) {
-                containsNumber = true;
-                break;
-            }
-        }
+        boolean containsNumber = meetsContainingNumberCriteria(password);
         if (!containsNumber) return PasswordStrength.NORMAL;
         return PasswordStrength.STRONG;
+    }
+
+    private boolean meetsContainingNumberCriteria(String password) {
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
