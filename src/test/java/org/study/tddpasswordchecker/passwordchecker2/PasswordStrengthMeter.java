@@ -6,18 +6,19 @@ public class PasswordStrengthMeter {
 
     public PasswordStrength meter(String password) {
         if (password == null || password.isEmpty()) return PasswordStrength.INVALID;
-        if (password.length() < 8) {
-            return PasswordStrength.NORMAL;
-        }
+        int metCount = 0;
 
-        boolean containsNumber = meetsContainingNumberCriteria(password);
-        if (!containsNumber) return PasswordStrength.NORMAL;
+        if (meetsLengthCriteria(password)) metCount++;
+        if (meetsContainingNumberCriteria(password)) metCount++;
+        if (meetsContainingUppercaseCriteria(password)) metCount++;
 
-        boolean containsUppercase = meetsContainingUppercaseCriteria(password);
-        if (!containsUppercase) return PasswordStrength.NORMAL;
+        if (metCount == 1) return PasswordStrength.WEAK;
+        else if (metCount == 2) return PasswordStrength.NORMAL;
+        else return PasswordStrength.STRONG;
+    }
 
-        return PasswordStrength.STRONG;
-
+    private boolean meetsLengthCriteria(String password) {
+        return password.length() >= 8;
     }
 
     private boolean meetsContainingNumberCriteria(String password) {

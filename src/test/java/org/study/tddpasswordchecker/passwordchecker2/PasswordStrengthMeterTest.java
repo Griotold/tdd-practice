@@ -60,5 +60,10 @@ public class PasswordStrengthMeterTest {
         assertStrength("ab12!@df", PasswordStrength.NORMAL);
     }
 
+    @DisplayName("길이가 8글자 이상인 조건만 충족하는 경우 -> '약함'")
+    @Test
+    void meetsOnlyLengthCriteria_Then_Weak() throws Exception {
+        assertStrength("abcdefghi", PasswordStrength.WEAK);
+    }
 
 }
