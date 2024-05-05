@@ -12,12 +12,26 @@ public class PasswordStrengthMeter {
 
         boolean containsNumber = meetsContainingNumberCriteria(password);
         if (!containsNumber) return PasswordStrength.NORMAL;
+
+        boolean containsUppercase = meetsContainingUppercaseCriteria(password);
+        if (!containsUppercase) return PasswordStrength.NORMAL;
+
         return PasswordStrength.STRONG;
+
     }
 
     private boolean meetsContainingNumberCriteria(String password) {
         for (char c : password.toCharArray()) {
             if (Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean meetsContainingUppercaseCriteria(String password) {
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) {
                 return true;
             }
         }
