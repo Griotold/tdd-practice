@@ -44,8 +44,14 @@ public class PasswordStrengthMeterTest {
 
     @DisplayName("입력이 null 인 경우 -> INVALID")
     @Test
-    void PasswordStrengthMeterTest() throws Exception {
+    void nullInput_Then_Invalid() throws Exception {
         assertStrength(null, PasswordStrength.INVALID);
+    }
+
+    @DisplayName("입력이 빈 값인 경우 -> INVALID")
+    @Test
+    void emptyInput_Then_Invalid() throws Exception {
+        assertStrength("", PasswordStrength.INVALID);
     }
 
 
