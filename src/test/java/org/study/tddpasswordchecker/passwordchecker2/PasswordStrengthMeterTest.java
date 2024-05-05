@@ -34,4 +34,12 @@ public class PasswordStrengthMeterTest {
         PasswordStrength result2 = meter.meter("Ab12!c");
         assertThat(result2).isEqualTo(PasswordStrength.NORMAL);
     }
+
+    @DisplayName("숫자를 포함하지 않고 나머지 조건은 충족하는 경우 -> '보통'")
+    @Test
+    void meetsOtherCriteria_except_for_number_Then_Normal() throws Exception {
+        PasswordStrengthMeter meter = new PasswordStrengthMeter();
+        PasswordStrength result = meter.meter("ab!@ABqwer");
+        assertThat(result).isEqualTo(PasswordStrength.NORMAL);
+    }
 }
