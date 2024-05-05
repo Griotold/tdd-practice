@@ -42,5 +42,11 @@ public class PasswordStrengthMeterTest {
         assertStrength("ab!@ABqwer", PasswordStrength.NORMAL);
     }
 
+    @DisplayName("입력이 null 인 경우 -> INVALID")
+    @Test
+    void PasswordStrengthMeterTest() throws Exception {
+        assertStrength(null, PasswordStrength.INVALID);
+    }
+
 
 }

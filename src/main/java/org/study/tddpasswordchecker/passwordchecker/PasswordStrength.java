@@ -1,5 +1,5 @@
 package org.study.tddpasswordchecker.passwordchecker;
 
 public enum PasswordStrength {
-    NORMAL, WEAK, STRONG
+    NORMAL, WEAK, INVALID, STRONG
 }
