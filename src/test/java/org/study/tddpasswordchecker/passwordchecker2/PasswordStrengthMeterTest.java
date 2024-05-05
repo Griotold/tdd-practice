@@ -66,4 +66,16 @@ public class PasswordStrengthMeterTest {
         assertStrength("abcdefghi", PasswordStrength.WEAK);
     }
 
+    @DisplayName("숫자 조건만 충족하는 경우 -> '약함'")
+    @Test
+    void meetsOnlyNumberCriteria_Then_Weak() throws Exception {
+        assertStrength("abc12", PasswordStrength.WEAK);
+    }
+
+    @DisplayName("대문자 조건만 충족하는 경우 -> '약함'")
+    @Test
+    void meetsOnlyUppercaseCriteria_Then_Weak() throws Exception {
+        assertStrength("aABC", PasswordStrength.WEAK);
+    }
+
 }
