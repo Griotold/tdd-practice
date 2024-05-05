@@ -6,16 +6,22 @@ public class PasswordStrengthMeter {
 
     public PasswordStrength meter(String password) {
         if (password == null || password.isEmpty()) return PasswordStrength.INVALID;
+        int metCount = getMetCounts(password);
+
+        if (metCount <= 1) return PasswordStrength.WEAK;
+        if (metCount == 2) return PasswordStrength.NORMAL;
+
+        return PasswordStrength.STRONG;
+    }
+
+    private int getMetCounts(String password) {
         int metCount = 0;
 
         if (meetsLengthCriteria(password)) metCount++;
         if (meetsContainingNumberCriteria(password)) metCount++;
         if (meetsContainingUppercaseCriteria(password)) metCount++;
 
-        if (metCount <= 1) return PasswordStrength.WEAK;
-        if (metCount == 2) return PasswordStrength.NORMAL;
-
-        return PasswordStrength.STRONG;
+        return metCount;
     }
 
     private boolean meetsLengthCriteria(String password) {
