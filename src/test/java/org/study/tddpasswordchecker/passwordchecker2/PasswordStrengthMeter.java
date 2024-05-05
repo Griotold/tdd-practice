@@ -13,8 +13,9 @@ public class PasswordStrengthMeter {
         if (meetsContainingUppercaseCriteria(password)) metCount++;
 
         if (metCount == 1) return PasswordStrength.WEAK;
-        else if (metCount == 2) return PasswordStrength.NORMAL;
-        else return PasswordStrength.STRONG;
+        if (metCount == 2) return PasswordStrength.NORMAL;
+
+        return PasswordStrength.STRONG;
     }
 
     private boolean meetsLengthCriteria(String password) {
