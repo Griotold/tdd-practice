@@ -32,4 +32,12 @@ public class MovieTest {
         movie.rate(1);
         assertThat(movie.average()).isEqualTo(1);
     }
+
+    @DisplayName("점수 3과 5를 주고 평점을 구하면 4")
+    @Test
+    void should_return_4_when_3_and_5_rated() throws Exception {
+        movie.rate(3);
+        movie.rate(5);
+        assertThat(movie.average()).isEqualTo(4);
+    }
 }
