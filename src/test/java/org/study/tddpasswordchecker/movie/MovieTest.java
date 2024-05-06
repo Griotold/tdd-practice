@@ -1,5 +1,6 @@
 package org.study.tddpasswordchecker.movie;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,24 +13,23 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class MovieTest {
 
-    @Test
-    void canCreateMovie() throws Exception {
-        Movie movie = new Movie();
+    private Movie movie;
+
+    @BeforeEach
+    public void setUp() {
+        movie = new Movie();
     }
 
     @DisplayName("Movie 생성 직 후 average 는 0 ")
     @Test
     void should_return_o_when_just_created() throws Exception {
-        Movie movie = new Movie();
         assertThat(movie.average()).isEqualTo(0);
     }
 
     @DisplayName("점수 1을 주고 평점을 구하면 1")
     @Test
     void should_return_1_when_was_rated() throws Exception {
-        Movie movie = new Movie();
         movie.rate(1);
         assertThat(movie.average()).isEqualTo(1);
-
     }
 }
