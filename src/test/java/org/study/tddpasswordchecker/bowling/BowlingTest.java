@@ -1,13 +1,10 @@
 package org.study.tddpasswordchecker.bowling;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.net.Socket;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 볼링 게임
@@ -36,5 +33,14 @@ public class BowlingTest {
             game.roll(0);
             assertThat(game.getScore()).isEqualTo(0);
         }
+    }
+
+    @DisplayName("모두 1개만 쓰러뜨리기")
+    @Test
+    void allOnes() throws Exception {
+        for (int i = 0; i < 20; i++) {
+            game.roll(1);
+        }
+        assertThat(game.getScore()).isEqualTo(20);
     }
 }
