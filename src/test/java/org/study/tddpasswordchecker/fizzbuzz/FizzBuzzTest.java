@@ -14,16 +14,20 @@ public class FizzBuzzTest {
     void setUp() {
         fizzBuzz = new FizzBuzz();
     }
+    void assertFizzBuzz(int number, String expected) {
+        String result = fizzBuzz.call(number);
+        assertThat(result).isEqualTo(expected);
+    }
 
     @Test
     void input_1_then_1_return() throws Exception {
-        String result = fizzBuzz.call(1);
-        assertThat(result).isEqualTo("1");
+        assertFizzBuzz(1, "1");
     }
 
     @Test
     void input_3_then_Fizz_return() {
-        String result = fizzBuzz.call(3);
-        assertThat(result).isEqualTo("Fizz");
+        assertFizzBuzz(3, "Fizz");
     }
+
+
 }
