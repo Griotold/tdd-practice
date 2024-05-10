@@ -29,5 +29,10 @@ public class FizzBuzzTest {
         assertFizzBuzz(3, "Fizz");
     }
 
+    @Test
+    void input_5_then_Buzz_return() {
+        assertFizzBuzz(5, "Buzz");
+    }
+
 
 }
