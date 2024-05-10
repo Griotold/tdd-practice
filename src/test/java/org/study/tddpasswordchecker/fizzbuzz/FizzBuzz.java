@@ -5,6 +5,6 @@ public class FizzBuzz {
     public String call(int number) {
         if (number == 3) return "Fizz";
         if (number == 5) return "Buzz";
-        return "1";
+        return String.valueOf(number);
     }
 }
