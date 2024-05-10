@@ -12,4 +12,18 @@ public class FizzBuzz {
 
         return String.valueOf(number);
     }
+
+    // chatGPT 개선안
+    public String fizzBuzz(int number) {
+        StringBuilder sb = new StringBuilder();
+
+        if (number % 3 == 0) {
+            sb.append("Fizz");
+        }
+        if (number % 5 == 0) {
+            sb.append("Buzz");
+        }
+
+        return sb.isEmpty() ? String.valueOf(number) : sb.toString();
+    }
 }
