@@ -39,5 +39,10 @@ public class FizzBuzzTest {
         assertFizzBuzz(2, "2");
     }
 
+    @Test
+    void input_multiples_of_five_then_Fizz_return() {
+        assertFizzBuzz(6, "Fizz");
+        assertFizzBuzz(9, "Fizz");
+    }
 
 }
