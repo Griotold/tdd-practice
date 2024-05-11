@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.assertj.core.api.Assertions.*;
+
 /**
  * 책 3장 - 서비스 만료일 계산 기능
  * */
@@ -20,6 +22,12 @@ public class ExpiryDateCalculatorTest {
         ExpiryDateCalculator cal = new ExpiryDateCalculator();
         LocalDate expiryDate = cal.calculateExpiryDate(billingDate, payAmount);
 
-        Assertions.assertThat(expiryDate).isEqualTo(LocalDate.of(2019, 4, 1));
+        assertThat(expiryDate).isEqualTo(LocalDate.of(2019, 4, 1));
+
+        LocalDate billingDate2 = LocalDate.of(2019, 5, 5);
+        LocalDate expiryDate2 = cal.calculateExpiryDate(billingDate2, payAmount);
+
+        assertThat(expiryDate2).isEqualTo(LocalDate.of(2019, 6, 5));
+
     }
 }
