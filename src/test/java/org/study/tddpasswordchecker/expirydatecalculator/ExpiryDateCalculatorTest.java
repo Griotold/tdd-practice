@@ -16,7 +16,7 @@ public class ExpiryDateCalculatorTest {
         ExpiryDateCalculator cal = new ExpiryDateCalculator();
         LocalDate expiryDate = cal.calculateExpiryDate(payData);
 
-        assertThat(expectedExpiryDate).isEqualTo(expiryDate);
+        assertThat(expiryDate).isEqualTo(expectedExpiryDate);
     }
 
     @Test
@@ -136,5 +136,22 @@ public class ExpiryDateCalculatorTest {
                         .build(),
                 LocalDate.of(2019, 7, 31)
         );
+    }
+    @DisplayName("10만원을 납부하면 1년 제공")
+    @Test
+    void 십만원을_납부하면_1년_제공() throws Exception {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 1, 28))
+                        .payAmount(100_000)
+                        .build(),
+                LocalDate.of(2020, 1, 28));
+
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2020, 2, 29))
+                        .payAmount(100_000)
+                        .build(),
+                LocalDate.of(2021, 2, 28));
     }
 }
