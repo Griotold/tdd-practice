@@ -1,12 +1,11 @@
 package org.study.tddpasswordchecker.expirydatecalculator;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 책 3장 - 서비스 만료일 계산 기능
