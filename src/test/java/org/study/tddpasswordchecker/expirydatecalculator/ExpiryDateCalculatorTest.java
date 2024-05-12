@@ -106,4 +106,35 @@ public class ExpiryDateCalculatorTest {
                 LocalDate.of(2019, 6, 1)
         );
     }
+
+    @Test
+    @DisplayName("첫 납부일과 만료일 일자가 다를 때 2만원 이상 납부시")
+    void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() throws Exception {
+        assertExpiryDate(
+                PayData.builder()
+                        .firstBillingDate(LocalDate.of(2019, 1, 31))
+                        .billingDate(LocalDate.of(2019, 2, 28))
+                        .payAmount(20_000)
+                        .build(),
+                LocalDate.of(2019, 4, 30)
+        );
+
+        assertExpiryDate(
+                PayData.builder()
+                        .firstBillingDate(LocalDate.of(2019, 1, 31))
+                        .billingDate(LocalDate.of(2019, 2, 28))
+                        .payAmount(40_000)
+                        .build(),
+                LocalDate.of(2019, 6, 30)
+        );
+
+        assertExpiryDate(
+                PayData.builder()
+                        .firstBillingDate(LocalDate.of(2019, 3, 31))
+                        .billingDate(LocalDate.of(2019, 4, 30))
+                        .payAmount(30_000)
+                        .build(),
+                LocalDate.of(2019, 7, 31)
+        );
+    }
 }
