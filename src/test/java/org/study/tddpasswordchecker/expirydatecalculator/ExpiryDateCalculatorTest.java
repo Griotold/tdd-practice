@@ -154,4 +154,15 @@ public class ExpiryDateCalculatorTest {
                         .build(),
                 LocalDate.of(2021, 2, 28));
     }
+
+    @DisplayName("10만원 이상 납부하면 비례해서 계산")
+    @Test
+    void 십만원_이상을_납부하면_비례해서_계산() {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 1, 28))
+                        .payAmount(130_000)
+                        .build(),
+                LocalDate.of(2020, 4, 28));
+    }
 }

@@ -53,4 +53,11 @@ public class PayData {
             return data;
         }
     }
+
+    public int getAddMonths() {
+        if (payAmount < 100_000) return payAmount / 10_000;
+        int years = payAmount / 100_000;
+        int zaturi = payAmount % 100_000;
+        return years * 12 + zaturi / 10_000;
+    }
 }
