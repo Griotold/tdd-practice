@@ -3,6 +3,7 @@ package org.study.tddpasswordchecker.expirydatecalculator;
 import java.time.LocalDate;
 
 public class PayData {
+    // todo 질문2. 상수로 추출했는데 가독성 개선이 있는지
     private static final int MONTHLY_PAYMENT_THRESHOLD = 10_000;
     private static final int ANNUAL_PAYMENT_THRESHOLD = 100_000;
     private static final int MONTHS_IN_YEAR = 12;
@@ -11,7 +12,8 @@ public class PayData {
     private LocalDate billingDate;
     private int payAmount;
 
-    public PayData() {}
+    public PayData() {
+    }
 
     public PayData(LocalDate firstBillingDate, LocalDate billingDate, int payAmount) {
         this.firstBillingDate = firstBillingDate;

@@ -35,6 +35,7 @@ public class ExpiryDateCalculator {
         return YearMonth.from(candidateExp).lengthOfMonth();
     }
 
+    // todo. 질문 1. !isSameDayOfMonth VS isSameDayOfMonth
     private boolean isSameDayOfMonth(LocalDate firstBillingDate, LocalDate candidateExp) {
         int dayOfFirstBilling = firstBillingDate.getDayOfMonth();
         int dayOfCandidateExp = candidateExp.getDayOfMonth();
