@@ -1,10 +1,9 @@
 package org.study.tddpasswordchecker.fizzbuzz0513;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FizzBuzzTest {
 
@@ -49,6 +48,13 @@ public class FizzBuzzTest {
     void input_multiples_of_3_and_5_return_FizzBuzz() {
         assertFizzBuzz(15, "FizzBuzz");
         assertFizzBuzz(30, "FizzBuzz");
+    }
+
+    @Test
+    void print_from_1_to_100() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println(fizzBuzzBot.fizzBuzz(i));
+        }
     }
 
 }
