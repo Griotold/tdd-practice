@@ -15,15 +15,18 @@ public class FizzBuzzTest {
         fizzBuzzBot = new FizzBuzzBot();
     }
 
+    private void assertFizzBuzz(int input, String expected) {
+        String result = fizzBuzzBot.fizzBuzz(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @Test
     void input_1_then_return_1() throws Exception {
-        String result = fizzBuzzBot.fizzBuzz(1);
-        assertThat(result).isEqualTo("1");
+        assertFizzBuzz(1, "1");
     }
 
     @Test
     void input_3_then_return_Fizz() throws Exception {
-        String result = fizzBuzzBot.fizzBuzz(3);
-        assertThat(result).isEqualTo("Fizz");
+        assertFizzBuzz(3, "Fizz");
     }
 }
