@@ -29,4 +29,9 @@ public class FizzBuzzTest {
     void input_3_then_return_Fizz() throws Exception {
         assertFizzBuzz(3, "Fizz");
     }
+
+    @Test
+    void input_5_then_return_Buzz() {
+        assertFizzBuzz(5, "Buzz");
+    }
 }
