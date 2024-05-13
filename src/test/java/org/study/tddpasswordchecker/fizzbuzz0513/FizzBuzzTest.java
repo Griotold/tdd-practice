@@ -45,4 +45,10 @@ public class FizzBuzzTest {
         assertFizzBuzz(10, "Buzz");
     }
 
+    @Test
+    void input_multiples_of_3_and_5_return_FizzBuzz() {
+        assertFizzBuzz(15, "FizzBuzz");
+        assertFizzBuzz(30, "FizzBuzz");
+    }
+
 }
