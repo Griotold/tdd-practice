@@ -34,4 +34,10 @@ public class FizzBuzzTest {
     void input_5_then_return_Buzz() {
         assertFizzBuzz(5, "Buzz");
     }
+
+    @Test
+    void input_multiples_of_3_return_Fizz() {
+        assertFizzBuzz(6, "Fizz");
+    }
+
 }
