@@ -3,6 +3,10 @@ package org.study.tddpasswordchecker.expirydatecalculator0515;
 import java.time.LocalDate;
 
 public class PayData0515 {
+    private static final int MONTHLY_PAYMONT = 10_000;
+    private static final int ANNUAL_PAYMENT = 100_000;
+    private static final int MONTHS_IN_YEAR = 12;
+
     private LocalDate firstBillingDate;
     private LocalDate billingDate;
     private int payAmount;
@@ -55,9 +59,9 @@ public class PayData0515 {
     }
 
     public int getAddMonths() {
-        int years = payAmount / 100_000;
-        int months = (payAmount % 100_000) / 10_000;
-        return years * 12 + months;
+        int years = payAmount / ANNUAL_PAYMENT;
+        int months = (payAmount % ANNUAL_PAYMENT) / MONTHLY_PAYMONT;
+        return years * MONTHS_IN_YEAR + months;
     }
 
 }
