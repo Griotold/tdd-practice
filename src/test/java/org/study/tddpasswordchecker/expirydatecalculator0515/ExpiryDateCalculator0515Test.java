@@ -59,7 +59,8 @@ public class ExpiryDateCalculator0515Test {
     void 첫_납부일과_만료일_일자가_다를때_만원_납부() {
         assertExpiryDate(
                 PayData0515.builder()
-                        .billingDate(LocalDate.of(2020, 1, 31))
+                        .firstBillingDate(LocalDate.of(2019, 1, 31))
+                        .billingDate(LocalDate.of(2019, 2, 28))
                         .payAmount(10_000)
                         .build(),
                 LocalDate.of(2019, 3, 31));
