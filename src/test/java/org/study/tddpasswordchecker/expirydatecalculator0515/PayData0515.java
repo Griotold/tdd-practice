@@ -54,4 +54,10 @@ public class PayData0515 {
         }
     }
 
+    public int getAddMonths() {
+        int years = payAmount / 100_000;
+        int months = (payAmount % 100_000) / 10_000;
+        return years * 12 + months;
+    }
+
 }

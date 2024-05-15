@@ -141,4 +141,15 @@ public class ExpiryDateCalculator0515Test {
                 LocalDate.of(2021, 2, 28)
         );
     }
+
+    @Test
+    void 십삼만원_납부하면_1년_3개월_제공() {
+        assertExpiryDate(
+                PayData0515.builder()
+                        .billingDate(LocalDate.of(2019, 1, 29))
+                        .payAmount(130_000)
+                        .build(),
+                LocalDate.of(2020, 4, 29)
+        );
+    }
 }
