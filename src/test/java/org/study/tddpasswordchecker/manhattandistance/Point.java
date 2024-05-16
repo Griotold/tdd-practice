@@ -31,4 +31,8 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public int distanceFrom(Point b) {
+        return Math.abs(x - b.getX()) + Math.abs(y - b.getY());
+    }
 }
