@@ -20,5 +20,11 @@ public class ManhattanDistanceTest {
         assertThat(result).isEqualTo(4);
     }
 
+    @Test
+    void from_one_and_one_to_zero_and_three_then_return_3() {
+        ManhattanDistance manhattanDistance = new ManhattanDistance();
+        int result = manhattanDistance.calculate(new Point(1, 1), new Point(0, 3));
+        assertThat(result).isEqualTo(3);
+    }
 
 }
