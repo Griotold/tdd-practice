@@ -13,22 +13,24 @@ public class ManhattanDistanceTest {
         manhattanDistance = new ManhattanDistance();
     }
 
+    void assertDistance(Point point1, Point point2, int expected) {
+        int result = manhattanDistance.calculate(point1, point2);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @Test
     void from_one_and_one_to_one_and_one_then_return_0() {
-        int result = manhattanDistance.calculate(new Point(1, 1), new Point(1, 1));
-        assertThat(result).isEqualTo(0);
+        assertDistance(new Point(1, 1), new Point(1, 1), 0);
     }
 
     @Test
     void from_five_and_four_to_three_and_two_then_return_4() {
-        int result = manhattanDistance.calculate(new Point(5, 4), new Point(3, 2));
-        assertThat(result).isEqualTo(4);
+        assertDistance(new Point(5, 4), new Point(3, 2), 4);
     }
 
     @Test
     void from_one_and_one_to_zero_and_three_then_return_3() {
-        int result = manhattanDistance.calculate(new Point(1, 1), new Point(0, 3));
-        assertThat(result).isEqualTo(3);
+        assertDistance(new Point(1, 1), new Point(0, 3), 3);
     }
 
 }
