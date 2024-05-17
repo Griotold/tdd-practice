@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.primefactor;
+package org.study.tddpasswordchecker.primefactors;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

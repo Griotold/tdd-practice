@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.primefactor;
+package org.study.tddpasswordchecker.primefactors;
 
 import java.util.ArrayList;
 import java.util.Collections;
