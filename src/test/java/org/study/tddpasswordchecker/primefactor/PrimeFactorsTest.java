@@ -46,4 +46,9 @@ public class PrimeFactorsTest {
     void five_then_return_list_with_five() {
         assertPrimeFactorsList(5, List.of(5));
     }
+
+    @Test
+    void six_then_return_list() {
+        assertPrimeFactorsList(6, List.of(2, 3));
+    }
 }
