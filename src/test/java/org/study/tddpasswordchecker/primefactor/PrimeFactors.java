@@ -9,12 +9,12 @@ public class PrimeFactors {
         if (input < 2) return Collections.emptyList();
         int num = input;
         List<Integer> list = new ArrayList<>();
-        while(num >= 2) {
-            if (num % 2 == 0) {
-                list.add(2);
+        for (int i = 2; num > 1; i++) {
+            while (num % i == 0) {
+                list.add(i);
+                num /= i;
             }
-            num /= 2;
         }
-        return list.isEmpty() ? List.of(input) : list;
+        return list;
     }
 }
