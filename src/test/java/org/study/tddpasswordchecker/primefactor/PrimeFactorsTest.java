@@ -37,4 +37,8 @@ public class PrimeFactorsTest {
         assertPrimeFactorsList(3, List.of(3));
     }
 
+    @Test
+    void four_then_return_list_with_three() {
+        assertPrimeFactorsList(4, List.of(2, 2));
+    }
 }
