@@ -21,6 +21,7 @@ public class PrimeFactorsTest {
         List<Integer> result = primeFactors.generate(input);
         assertThat(result).isEqualTo(expected);
     }
+
     @Test
     void one_then_return_empty_list() {
         assertPrimeFactorsList(1, Collections.emptyList());
@@ -29,6 +30,11 @@ public class PrimeFactorsTest {
     @Test
     void two_then_return_list_with_two() {
         assertPrimeFactorsList(2, List.of(2));
+    }
+
+    @Test
+    void three_then_return_list_with_three() {
+        assertPrimeFactorsList(3, List.of(3));
     }
 
 }
