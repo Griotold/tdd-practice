@@ -1,11 +1,12 @@
 package org.study.tddpasswordchecker.primefactor;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PrimeFactorsTest {
 
@@ -15,16 +16,19 @@ public class PrimeFactorsTest {
     void setUp() {
         primeFactors = new PrimeFactors();
     }
+
+    void assertPrimeFactorsList(int input, List<Integer> expected) {
+        List<Integer> result = primeFactors.generate(input);
+        assertThat(result).isEqualTo(expected);
+    }
     @Test
     void one_then_return_empty_list() {
-        List<Integer> result = primeFactors.generate(1);
-        Assertions.assertThat(result).isEqualTo(Collections.emptyList());
+        assertPrimeFactorsList(1, Collections.emptyList());
     }
 
     @Test
     void two_then_return_list_with_two() {
-        List<Integer> result = primeFactors.generate(2);
-        Assertions.assertThat(result).isEqualTo(List.of(2));
+        assertPrimeFactorsList(2, List.of(2));
     }
 
 }
