@@ -51,4 +51,9 @@ public class PrimeFactorsTest {
     void six_then_return_list() {
         assertPrimeFactorsList(6, List.of(2, 3));
     }
+
+    @Test
+    void one_hundred_then_return_list() {
+        assertPrimeFactorsList(100, List.of(2, 2, 5, 5));
+    }
 }
