@@ -88,4 +88,19 @@ public class GildedRoseTest {
             assertThat(itemQuality()).isEqualTo(0);
         }
     }
+
+    @Nested
+    @DisplayName("'Sulfuras'는")
+    class Sulfuras {
+
+        @DisplayName("하루가 지나도 품질과 sellIn은 변하지 않는다")
+        @Test
+        void qualityAndSellInUnchanged() {
+            GildedRoseTest.this.setup("Sulfuras, Hand of Ragnaros", 10, 80);
+            app.updateQuality();
+            assertThat(itemQuality()).isEqualTo(80);
+            assertThat(itemSellIn()).isEqualTo(10);
+        }
+
+    }
 }
