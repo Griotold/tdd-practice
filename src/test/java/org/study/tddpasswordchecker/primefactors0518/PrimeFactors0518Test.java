@@ -38,4 +38,9 @@ public class PrimeFactors0518Test {
     public void testSix() throws Exception {
         assertThat(generate(6)).isEqualTo(list(2, 3));
     }
+
+    @Test
+    public void testEight() throws Exception {
+        assertThat(generate(8)).isEqualTo(list(2, 2, 2));
+    }
 }
