@@ -23,4 +23,9 @@ public class PrimeFactors0518Test {
     public void testTwo() throws Exception {
         assertThat(generate(2)).isEqualTo(list(2));
     }
+
+    @Test
+    public void testThree() throws Exception {
+        assertThat(generate(3)).isEqualTo(list(3));
+    }
 }

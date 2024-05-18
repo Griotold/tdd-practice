@@ -5,10 +5,10 @@ import java.util.List;
 
 public class PrimeFactors0518 {
     public static List<Integer> generate(int num) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> primes = new ArrayList<>();
         if(num > 1) {
-            list.add(2);
+            primes.add(num);
         }
-        return list;
+        return primes;
     }
 }
