@@ -8,9 +8,8 @@ public class PrimeFactors0518 {
         List<Integer> primes = new ArrayList<>();
         int candidate = 2;
         while (num > 1) {
-            while (num % candidate == 0) {
+            for (; num % candidate == 0; num /= candidate) {
                 primes.add(candidate);
-                num /= candidate;
             }
             candidate++;
         }
