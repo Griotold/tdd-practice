@@ -11,6 +11,10 @@ public class PrimeFactors0518 {
                 primes.add(2);
                 num /= 2;
             }
+            while (num % 3 == 0) {
+                primes.add(3);
+                num /= 3;
+            }
             if (num > 1) {
                 primes.add(num);
             }
