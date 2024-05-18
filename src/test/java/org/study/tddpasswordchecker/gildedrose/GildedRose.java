@@ -1,63 +1,28 @@
 package org.study.tddpasswordchecker.gildedrose;
 
-public class GildedRose {
+import java.util.HashMap;
 
+public class GildedRose {
+    public static final String DEFAULT_STRATEGY = "default";
     Item[] items;
+    HashMap<String, ItemUpdateStrategy> strategies;
 
     public GildedRose(Item[] items) {
         this.items = items;
+        this.strategies = new HashMap<>();
+        this.strategies.put("Aged Brie", new AgedBrieUpdateStrategy());
+        this.strategies.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassesUpdateStrategy());
+        this.strategies.put("Sulfuras, Hand of Ragnaros", new SulfurasUpdateStrategy());
+        this.strategies.put(DEFAULT_STRATEGY, new StandardItemUpdateStrategy());
     }
 
     public void updateQuality() {
-        for (Item item: items) {
-            if (!item.name.equals("Aged Brie")
-                    && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.quality -= 1;
-                    }
-                }
-            } else {
-                if (item.quality < 50) {
-                    item.quality += 1;
-
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality += 1;
-                            }
-                        }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality += 1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                item.sellIn -= 1;
-            }
-
-            if (item.sellIn < 0) {
-                if (!item.name.equals("Aged Brie")) {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.quality > 0) {
-                            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                                item.quality -= 1;
-                            }
-                        }
-                    } else {
-                        item.quality = item.quality - item.quality;
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        item.quality += 1;
-                    }
-                }
-            }
+        for (Item item : items) {
+            getItemUpdateStrategy(item).update(item);
         }
+    }
+
+    private ItemUpdateStrategy getItemUpdateStrategy(Item item) {
+        return strategies.getOrDefault(item.name, strategies.get(DEFAULT_STRATEGY));
     }
 }
