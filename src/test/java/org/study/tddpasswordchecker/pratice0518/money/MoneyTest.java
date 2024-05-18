@@ -2,18 +2,15 @@ package org.study.tddpasswordchecker.pratice0518.money;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MoneyTest {
 
     @Test
     void testMultiplication() throws Exception {
         Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        assertThat(product.amount).isEqualTo(10);
-
-        product = five.times(3);
-        assertThat(product.amount).isEqualTo(15);
+        assertThat(five.times(2)).isEqualTo(new Dollar(10));
+        assertThat(five.times(3)).isEqualTo(new Dollar(15));
     }
 
     @Test
