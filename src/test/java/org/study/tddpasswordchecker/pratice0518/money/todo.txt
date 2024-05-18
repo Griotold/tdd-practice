@@ -7,3 +7,4 @@
 [   ] hashCode()
 [   ] Equal null
 [   ] Equal object
+[ V ] 5CHF X 2 = 10CHF
