@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.study.tddpasswordchecker.primefactors0518.PrimeFactors0518.*;
 
 public class PrimeFactors0518Test {
 
@@ -15,11 +16,11 @@ public class PrimeFactors0518Test {
 
     @Test
     void testOne() throws Exception {
-        assertThat(PrimeFactors0518.generate(1)).isEqualTo(list());
+        assertThat(generate(1)).isEqualTo(list());
     }
 
     @Test
     public void testTwo() throws Exception {
-        assertThat(PrimeFactors0518.generate(2)).isEqualTo(list(2));
+        assertThat(generate(2)).isEqualTo(list(2));
     }
 }
