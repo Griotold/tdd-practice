@@ -1,14 +1,13 @@
 package org.study.tddpasswordchecker.gildedrose;
 
-public class StandardItemUpdateStrategy implements ItemUpdateStrategy {
+public class StandardItemUpdateStrategy extends AbstractItemUpdateStrategy {
     @Override
     public void update(Item item) {
-        item.sellIn -= 1;
-        if (item.quality > 0) {
-            item.quality -= 1;
-        }
-        if (item.sellIn < 0 && item.quality > 0) {
-            item.quality -= 1;
+        decrementSellIn(item);
+        decrementQuality(item);
+
+        if (item.sellIn < 0) {
+            decrementQuality(item);
         }
     }
 }
