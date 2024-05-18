@@ -7,13 +7,9 @@ public class GildedRose {
     Item[] items;
     HashMap<String, ItemUpdateStrategy> strategies;
 
-    public GildedRose(Item[] items) {
+    public GildedRose(Item[] items, StrategyFactory strategyFactory) {
         this.items = items;
-        this.strategies = new HashMap<>();
-        this.strategies.put("Aged Brie", new AgedBrieUpdateStrategy());
-        this.strategies.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassesUpdateStrategy());
-        this.strategies.put("Sulfuras, Hand of Ragnaros", new SulfurasUpdateStrategy());
-        this.strategies.put(DEFAULT_STRATEGY, new StandardItemUpdateStrategy());
+        this.strategies = strategyFactory.createStrategies();
     }
 
     public void updateQuality() {

@@ -13,7 +13,7 @@ public class GildedRoseTest {
 
     private void setup(String name, int sellIn, int quality) {
         items = new Item[] {new Item(name, sellIn, quality)};
-        app = new GildedRose(items);
+        app = new GildedRose(items, new StrategyFactory());
     }
 
     private int itemSellIn() {
