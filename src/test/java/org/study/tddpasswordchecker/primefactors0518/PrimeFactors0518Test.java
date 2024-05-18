@@ -9,12 +9,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PrimeFactors0518Test {
 
+    private List<Integer> list(Integer... input) {
+        return new ArrayList<>(List.of(input));
+    }
+
     @Test
     void testOne() throws Exception {
         assertThat(PrimeFactors0518.generate(1)).isEqualTo(list());
     }
 
-    private List<Integer> list() {
-        return new ArrayList<Integer>();
+    @Test
+    public void testTwo() throws Exception {
+        assertThat(PrimeFactors0518.generate(2)).isEqualTo(list(2));
     }
 }
