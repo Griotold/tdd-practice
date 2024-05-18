@@ -37,4 +37,18 @@ public class GildedRoseTest {
         }
     }
 
+    @Nested
+    @DisplayName("'Aged Brie'는")
+    class AgedBrie {
+        @DisplayName("하루가 지나면 Quality는 증가하지만 sellIn은 감소한다.")
+        @Test
+        void qualityIncreasesSellInDecreases() {
+            GildedRoseTest.this.setup("Aged Brie", 10, 20);
+            app.updateQuality();
+            assertThat(itemQuality()).isEqualTo(21);
+            assertThat(itemSellIn()).isEqualTo(9);
+        }
+
+    }
+
 }
