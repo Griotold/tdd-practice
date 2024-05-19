@@ -1,7 +1,10 @@
 package org.study.tddpasswordchecker.pratice0518.tennis;
 
 public enum TennisScore {
-    LOVE("Love", 0), FIFTEEN("Fifteen", 1), THIRTY("Thirty", 2);
+    LOVE("Love", 0),
+    FIFTEEN("Fifteen", 1),
+    THIRTY("Thirty", 2),
+    FORTY("Forty", 3),;
 
     private final String score;
     private final int point;

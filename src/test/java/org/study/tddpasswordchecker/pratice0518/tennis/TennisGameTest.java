@@ -52,4 +52,9 @@ public class TennisGameTest {
         assertTennisGameScore("Love, Thirty");
     }
 
+    @Test
+    void testPlayerOneWinsFirstThreeBalls() {
+        createScore(3, 0);
+        assertTennisGameScore("Forty, Love");
+    }
 }
