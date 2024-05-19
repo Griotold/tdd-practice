@@ -1,5 +1,7 @@
 package org.study.tddpasswordchecker.pratice0518.tennis;
 
+import java.util.Optional;
+
 public class TennisGame {
     private Player playerOne;
     private Player playerTwo;
@@ -15,12 +17,10 @@ public class TennisGame {
 
         if (isDeuce(oneScore, twoScore)) return "Deuce";
 
-        if (oneScore == TennisScore.WINNER) {
-            return playerOne.getName() + " wins";
-        }
-        if (twoScore == TennisScore.WINNER) {
-            return playerTwo.getName() + " wins";
-        }
+        // 이 부분 리팩토링 하는 방법 없을까?
+        Optional<String> winner = findWinner(oneScore, twoScore);
+        if (findWinner(oneScore, twoScore).isPresent()) return winner.get() + " wins";
+
         if (oneScore == twoScore) {
             return oneScore.getScore() + " all";
         } else {
@@ -30,6 +30,16 @@ public class TennisGame {
 
     private boolean isDeuce(TennisScore oneScore, TennisScore twoScore) {
         return oneScore == twoScore && oneScore.getPoint() >= 3;
+    }
+
+    private Optional<String> findWinner(TennisScore oneScore, TennisScore twoScore) {
+        if (oneScore == TennisScore.WINNER) {
+            return Optional.of(playerOne.getName());
+        }
+        if (twoScore == TennisScore.WINNER) {
+            return Optional.of(playerTwo.getName());
+        }
+        return Optional.empty();
     }
 
     public void playerOneScores() {
