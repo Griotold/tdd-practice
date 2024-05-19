@@ -37,4 +37,11 @@ public class TennisGameTest {
         assertTennisGameScore("Fifteen all");
     }
 
+    @Test
+    void testPlayerTwoWinsFirstTwoBalls() throws Exception {
+        game.playerTwoScores();
+        game.playerTwoScores();
+        assertTennisGameScore("Love, Thirty");
+    }
+
 }
