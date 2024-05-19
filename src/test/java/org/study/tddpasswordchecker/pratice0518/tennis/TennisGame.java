@@ -11,33 +11,14 @@ public class TennisGame {
 
 
     public String getScore() {
-        StringBuilder sb = new StringBuilder();
-        if (playerOneScore == playerTwoScore) {
-            if (playerOneScore == 0) {
-                return "Love all";
-            } else if (playerOneScore == 1) {
-                return "Fifteen all";
-            } else if (playerOneScore == 2) {
-                return "Thirty all";
-            }
-        } else {
-            if (playerOneScore == 0) {
-                sb.append("Love, ");
-            } else if (playerOneScore == 1) {
-                sb.append("Fifteen, ");
-            } else if (playerOneScore == 2) {
-                sb.append("Thirty, ");
-            }
+        oneScore = TennisScore.findByPoint(playerOneScore);
+        twoScore = TennisScore.findByPoint(playerTwoScore);
 
-            if (playerTwoScore == 0) {
-                sb.append("Love");
-            } else if (playerTwoScore == 1) {
-                sb.append("Fifteen");
-            } else if (playerTwoScore == 2) {
-                sb.append("Thirty");
-            }
+        if (oneScore == twoScore) {
+            return oneScore.getScore() + " all";
+        } else {
+            return oneScore.getScore() + ", " + twoScore.getScore();
         }
-        return sb.toString();
     }
 
     public void playerOneScores() {
