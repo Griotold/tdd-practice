@@ -4,7 +4,8 @@ public enum TennisScore {
     LOVE("Love", 0),
     FIFTEEN("Fifteen", 1),
     THIRTY("Thirty", 2),
-    FORTY("Forty", 3),;
+    FORTY("Forty", 3),
+    WINNER("Winner", 4);
 
     private final String score;
     private final int point;
