@@ -12,10 +12,8 @@ public class TennisGame {
     public String getScore() {
         TennisScore oneScore = TennisScore.findByPoint(playerOne.getPoint());
         TennisScore twoScore = TennisScore.findByPoint(playerTwo.getPoint());
-        if (oneScore == twoScore) {
-            if (oneScore.getPoint() >= 3)
-            return "Deuce";
-        }
+
+        if (isDeuce(oneScore, twoScore)) return "Deuce";
 
         if (oneScore == TennisScore.WINNER) {
             return playerOne.getName() + " wins";
@@ -28,6 +26,10 @@ public class TennisGame {
         } else {
             return oneScore.getScore() + ", " + twoScore.getScore();
         }
+    }
+
+    private boolean isDeuce(TennisScore oneScore, TennisScore twoScore) {
+        return oneScore == twoScore && oneScore.getPoint() >= 3;
     }
 
     public void playerOneScores() {
