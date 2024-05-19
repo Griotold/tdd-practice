@@ -12,4 +12,13 @@ public class TennisGameTest {
         String score = game.getScore();
         assertThat(score).isEqualTo("Love all");
     }
+
+    @Test
+    void testPlayerOneWinsFirstBall() throws Exception {
+        TennisGame game = new TennisGame("Iga Swiatek", "Aryna Sabalenka");
+        game.playerOneScores();
+        String score = game.getScore();
+        assertThat(score).isEqualTo("Fifteen, Love");
+    }
+
 }
