@@ -69,4 +69,10 @@ public class TennisGameTest {
         createScore(4, 0);
         assertTennisGameScore("Iga Swiatek wins");
     }
+
+    @Test
+    void testPlayerTwoWinsGame() {
+        createScore(0, 4);
+        assertTennisGameScore("Aryna Sabalenka wins");
+    }
 }

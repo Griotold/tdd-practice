@@ -17,6 +17,9 @@ public class TennisGame {
         if (oneScore == TennisScore.WINNER) {
             return playerOne.getName() + " wins";
         }
+        if (twoScore == TennisScore.WINNER) {
+            return playerTwo.getName() + " wins";
+        }
         if (oneScore == twoScore) {
             if (oneScore == TennisScore.FORTY) {
                 return "Deuce";
