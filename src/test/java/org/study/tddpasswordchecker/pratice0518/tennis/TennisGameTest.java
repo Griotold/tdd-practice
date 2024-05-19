@@ -13,25 +13,28 @@ public class TennisGameTest {
         game = new TennisGame("Iga Swiatek", "Aryna Sabalenka");
     }
 
+    private void assertTennisGameScore(String expected) {
+        String score = game.getScore();
+        assertThat(score).isEqualTo(expected);
+    }
+
     @Test
     void testNewGameShouldReturnLoveAll() throws Exception {
-        String score = game.getScore();
-        assertThat(score).isEqualTo("Love all");
+        assertTennisGameScore("Love all");
     }
 
     @Test
     void testPlayerOneWinsFirstBall() throws Exception {
         game.playerOneScores();
-        String score = game.getScore();
-        assertThat(score).isEqualTo("Fifteen, Love");
+        assertTennisGameScore("Fifteen, Love");
+
     }
 
     @Test
     void testFifteenAll() throws Exception {
         game.playerOneScores();
         game.playerTwoScores();
-        String score = game.getScore();
-        assertThat(score).isEqualTo("Fifteen all");
+        assertTennisGameScore("Fifteen all");
     }
 
 }
