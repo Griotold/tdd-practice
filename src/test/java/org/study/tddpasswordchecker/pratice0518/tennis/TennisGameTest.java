@@ -87,4 +87,10 @@ public class TennisGameTest {
         createScore(3, 4);
         assertTennisGameScore("Advantage Aryna Sabalenka");
     }
+
+    @Test
+    void testPlayerOneAdvantage() {
+        createScore(5, 4);
+        assertTennisGameScore("Advantage Iga Swiatek");
+    }
 }

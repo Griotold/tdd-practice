@@ -1,7 +1,9 @@
 package org.study.tddpasswordchecker.pratice0518.tennis;
 
 import java.util.Optional;
-
+/**
+ * ENUM 으로 하니까 막혀버리네...
+ * */
 public class TennisGame {
     private Player playerOne;
     private Player playerTwo;
