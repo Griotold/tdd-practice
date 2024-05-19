@@ -15,6 +15,9 @@ public class TennisGame {
         TennisScore twoScore = TennisScore.findByPoint(playerTwo.getPoint());
 
         if (oneScore == twoScore) {
+            if (oneScore == TennisScore.FORTY) {
+                return "Deuce";
+            }
             return oneScore.getScore() + " all";
         } else {
             return oneScore.getScore() + ", " + twoScore.getScore();
