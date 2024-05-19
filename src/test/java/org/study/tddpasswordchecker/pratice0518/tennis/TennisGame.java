@@ -9,10 +9,13 @@ public class TennisGame {
         this.playerTwo = new Player(PlayerTwo);
     }
 
-
     public String getScore() {
         TennisScore oneScore = TennisScore.findByPoint(playerOne.getPoint());
         TennisScore twoScore = TennisScore.findByPoint(playerTwo.getPoint());
+        if (oneScore == twoScore) {
+            if (oneScore.getPoint() >= 3)
+            return "Deuce";
+        }
 
         if (oneScore == TennisScore.WINNER) {
             return playerOne.getName() + " wins";
@@ -21,9 +24,6 @@ public class TennisGame {
             return playerTwo.getName() + " wins";
         }
         if (oneScore == twoScore) {
-            if (oneScore == TennisScore.FORTY) {
-                return "Deuce";
-            }
             return oneScore.getScore() + " all";
         } else {
             return oneScore.getScore() + ", " + twoScore.getScore();
