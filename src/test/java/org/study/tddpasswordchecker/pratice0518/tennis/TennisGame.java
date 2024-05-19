@@ -16,8 +16,11 @@ public class TennisGame {
         TennisScore twoScore = TennisScore.findByPoint(playerTwo.getPoint());
 
         if (isDeuce(oneScore, twoScore)) return "Deuce";
+        if (oneScore.getPoint() >= 3 && twoScore.getPoint() >= 3) {
+            if (oneScore.getPoint() - twoScore.getPoint() > 0) return "Advantage " + playerOne.getName();
+            else return "Advantage " + playerTwo.getName();
+        }
 
-        // 이 부분 리팩토링 하는 방법 없을까?
         Optional<String> winner = findWinner(oneScore, twoScore);
         if (findWinner(oneScore, twoScore).isPresent()) return winner.get() + " wins";
 
