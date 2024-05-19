@@ -1,21 +1,28 @@
 package org.study.tddpasswordchecker.pratice0518.tennis;
 
 public class TennisGame {
-    private int PlayerOneScore;
-    private int PlayerTwoScore;
+    private int playerOneScore;
+    private int playerTwoScore;
 
     public TennisGame(String playerOne, String PlayerTwo) {
     }
 
 
     public String getScore() {
-        if (PlayerOneScore == 1) {
+        if (playerOneScore == 0 && playerTwoScore == 0) {
+            return "Love all";
+        }
+        if (playerOneScore == 1 && playerTwoScore == 0) {
             return "Fifteen, Love";
         }
-        return "Love all";
+        return "Fifteen all";
     }
 
     public void playerOneScores() {
-        PlayerOneScore++;
+        playerOneScore++;
+    }
+
+    public void playerTwoScores() {
+        playerTwoScore++;
     }
 }
