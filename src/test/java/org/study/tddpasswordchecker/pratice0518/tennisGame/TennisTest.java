@@ -12,4 +12,13 @@ public class TennisTest {
         String score = tennis.getScore();
         assertThat(score).isEqualTo("Love all");
     }
+
+    @Test
+    void testPlayerOneWinsFirstBall() {
+        Tennis tennis = new Tennis();
+        tennis.playerOneScores();
+        String score = tennis.getScore();
+        assertThat(score).isEqualTo("Fifteen,Love");
+    }
+
 }
