@@ -27,4 +27,12 @@ public class TennisTest {
         assertThat(score).isEqualTo("Fifteen,Love");
     }
 
+    @Test
+    void testPlayerFifteenAll() {
+        tennis.playerOneScores();
+        tennis.playerTwoScores();
+        String score = tennis.getScore();
+        assertThat(score).isEqualTo("Fifteen all");
+    }
+
 }

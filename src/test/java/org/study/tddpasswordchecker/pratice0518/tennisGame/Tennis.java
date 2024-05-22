@@ -12,11 +12,18 @@ public class Tennis {
     }
 
     public String getScore() {
+        if (playerOneScore == playerTwoScore && playerOneScore == 1) {
+            return "Fifteen all";
+        }
         if (playerOneScore == 1) return "Fifteen,Love";
         return "Love all";
     }
 
     public void playerOneScores() {
         playerOneScore++;
+    }
+
+    public void playerTwoScores() {
+        playerTwoScore++;
     }
 }
