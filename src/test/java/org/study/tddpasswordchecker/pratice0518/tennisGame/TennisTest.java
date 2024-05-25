@@ -65,5 +65,10 @@ public class TennisTest {
         assertScore("Deuce");
     }
 
+    @Test
+    void testPlayerOneWinsGame() {
+        createScore(4, 0);
+        assertScore("Novak Dokovic wins");
+    }
 
 }

@@ -12,6 +12,9 @@ public class Tennis {
     }
 
     public String getScore() {
+        if (hasWinner()) {
+            return getWinnerName() + " wins";
+        }
         if (isDeuce()) return "Deuce";
         if (isSame()) {
             if (playerOneScore == 0) return "Love all";
@@ -19,6 +22,15 @@ public class Tennis {
             else return "Thirty all";
         }
         return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
+    }
+
+    private String getWinnerName() {
+        if (playerOneScore > playerTwoScore) return playerOneName;
+        else return playerTwoName;
+    }
+
+    private boolean hasWinner() {
+        return Math.abs(playerOneScore - playerTwoScore) >= 2 && (playerOneScore >= 4 || playerTwoScore >= 4);
     }
 
     private boolean isDeuce() {
