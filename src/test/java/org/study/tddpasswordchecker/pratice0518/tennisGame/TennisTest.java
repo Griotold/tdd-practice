@@ -14,25 +14,27 @@ public class TennisTest {
         tennis = new Tennis("Novak Dokovic", "Rafael Nadal");
     }
 
+    void assertScore(String expectedScore) {
+        String score = tennis.getScore();
+        assertThat(score).isEqualTo(expectedScore);
+    }
+
     @Test
     void testNewGameShouldReturnLoveAll() {
-        String score = tennis.getScore();
-        assertThat(score).isEqualTo("Love all");
+        assertScore("Love all");
     }
 
     @Test
     void testPlayerOneWinsFirstBall() {
         tennis.playerOneScores();
-        String score = tennis.getScore();
-        assertThat(score).isEqualTo("Fifteen,Love");
+        assertScore("Fifteen,Love");
     }
 
     @Test
     void testPlayerFifteenAll() {
         tennis.playerOneScores();
         tennis.playerTwoScores();
-        String score = tennis.getScore();
-        assertThat(score).isEqualTo("Fifteen all");
+        assertScore("Fifteen all");
     }
 
 }
