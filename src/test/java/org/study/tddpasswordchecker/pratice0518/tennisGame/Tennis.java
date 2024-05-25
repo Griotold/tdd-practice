@@ -12,13 +12,17 @@ public class Tennis {
     }
 
     public String getScore() {
+        if (isDeuce()) return "Deuce";
         if (isSame()) {
             if (playerOneScore == 0) return "Love all";
             else if (playerOneScore == 1) return "Fifteen all";
-            else if (playerOneScore == 2) return "Thirty all";
-            else return "Forty all";
+            else return "Thirty all";
         }
         return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
+    }
+
+    private boolean isDeuce() {
+        return playerOneScore == playerTwoScore && playerOneScore >= 3;
     }
 
     private boolean isSame() {

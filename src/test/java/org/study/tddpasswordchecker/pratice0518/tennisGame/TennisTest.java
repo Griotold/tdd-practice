@@ -59,6 +59,11 @@ public class TennisTest {
         assertScore("Forty,Love");
     }
 
+    @Test
+    void testPlayerAreDeuce() {
+        createScore(3, 3);
+        assertScore("Deuce");
+    }
 
 
 }
