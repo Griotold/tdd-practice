@@ -1,5 +1,7 @@
 package org.study.tddpasswordchecker.pratice0518.tennisGame;
 
+import org.springframework.test.annotation.IfProfileValue;
+
 public class Tennis {
     private int playerOneScore;
     private int playerTwoScore;
@@ -15,6 +17,9 @@ public class Tennis {
         if (hasWinner()) {
             return getWinnerName() + " wins";
         }
+        if (hasAdvantage()) {
+            return "Advantage " + getAdvantageName();
+        }
         if (isDeuce()) return "Deuce";
         if (isSame()) {
             if (playerOneScore == 0) return "Love all";
@@ -22,6 +27,14 @@ public class Tennis {
             else return "Thirty all";
         }
         return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
+    }
+
+    private String getAdvantageName() {
+        return playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
+    }
+
+    private boolean hasAdvantage() {
+        return Math.abs(playerOneScore - playerTwoScore) == 1 && (playerOneScore >= 3 && playerTwoScore >= 3);
     }
 
     private String getWinnerName() {
