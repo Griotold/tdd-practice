@@ -88,4 +88,10 @@ public class TennisTest {
         createScore(4, 5);
         assertScore("Advantage Rafael Nadal");
     }
+
+    @Test
+    public void testPlayerOneAdvantage(){
+        createScore(5, 4);
+        assertScore("Advantage Novak Dokovic");
+    }
 }
