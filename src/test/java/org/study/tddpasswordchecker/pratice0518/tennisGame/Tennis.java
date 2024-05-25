@@ -20,11 +20,15 @@ public class Tennis {
         }
         if (isDeuce()) return "Deuce";
         if (isSame()) {
-            if (playerOne.getScore() == 0) return "Love all";
-            else if (playerOne.getScore() == 1) return "Fifteen all";
-            else return "Thirty all";
+            return getSameScore();
         }
         return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
+    }
+
+    private String getSameScore() {
+        if (playerOne.getScore() == 0) return "Love all";
+        else if (playerOne.getScore() == 1) return "Fifteen all";
+        else return "Thirty all";
     }
 
     private String getAdvantageName() {
