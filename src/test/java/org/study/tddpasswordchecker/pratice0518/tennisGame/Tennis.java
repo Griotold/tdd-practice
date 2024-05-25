@@ -1,16 +1,14 @@
 package org.study.tddpasswordchecker.pratice0518.tennisGame;
 
-import org.springframework.test.annotation.IfProfileValue;
+
 
 public class Tennis {
-    private int playerOneScore;
-    private int playerTwoScore;
-    private String playerOneName;
-    private String playerTwoName;
+    private Player playerOne;
+    private Player playerTwo;
 
     public Tennis(String playerOneName, String playerTwoName) {
-        this.playerOneName = playerOneName;
-        this.playerTwoName = playerTwoName;
+        this.playerOne = new Player(playerOneName);
+        this.playerTwo = new Player(playerTwoName);
     }
 
     public String getScore() {
@@ -22,57 +20,59 @@ public class Tennis {
         }
         if (isDeuce()) return "Deuce";
         if (isSame()) {
-            if (playerOneScore == 0) return "Love all";
-            else if (playerOneScore == 1) return "Fifteen all";
+            if (playerOne.getScore() == 0) return "Love all";
+            else if (playerOne.getScore() == 1) return "Fifteen all";
             else return "Thirty all";
         }
         return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
     }
 
     private String getAdvantageName() {
-        return playerOneScore > playerTwoScore ? playerOneName : playerTwoName;
+        return playerOne.getScore() > playerTwo.getScore() ? playerOne.getName() : playerTwo.getName();
     }
 
     private boolean hasAdvantage() {
-        return Math.abs(playerOneScore - playerTwoScore) == 1 && (playerOneScore >= 3 && playerTwoScore >= 3);
+        return Math.abs(playerOne.getScore() - playerTwo.getScore()) == 1
+                && (playerOne.getScore() >= 3 && playerTwo.getScore() >= 3);
     }
 
     private String getWinnerName() {
-        if (playerOneScore > playerTwoScore) return playerOneName;
-        else return playerTwoName;
+        if (playerOne.getScore() > playerTwo.getScore()) return playerOne.getName();
+        else return playerTwo.getName();
     }
 
     private boolean hasWinner() {
-        return Math.abs(playerOneScore - playerTwoScore) >= 2 && (playerOneScore >= 4 || playerTwoScore >= 4);
+        return Math.abs(playerOne.getScore() - playerTwo.getScore()) >= 2
+                && (playerOne.getScore() >= 4 || playerTwo.getScore() >= 4);
     }
 
     private boolean isDeuce() {
-        return playerOneScore == playerTwoScore && playerOneScore >= 3;
+        return playerOne.getScore() == playerTwo.getScore() && playerOne.getScore() >= 3;
     }
 
     private boolean isSame() {
-        return playerOneScore == playerTwoScore;
+        return playerOne.getScore() == playerTwo.getScore();
     }
 
     private String getPlayerOneScoreName() {
-        if (playerOneScore == 0) return "Love";
-        else if (playerOneScore == 1) return "Fifteen";
-        else if (playerOneScore == 2) return "Thirty";
+        if (playerOne.getScore() == 0) return "Love";
+        else if (playerOne.getScore() == 1) return "Fifteen";
+        else if (playerOne.getScore() == 2) return "Thirty";
         else return "Forty";
     }
 
     private String getPlayerTwoScoreName() {
-        if (playerTwoScore == 0) return "Love";
-        else if (playerTwoScore == 1) return "Fifteen";
-        else if (playerTwoScore == 2) return "Thirty";
+        if (playerTwo.getScore() == 0) return "Love";
+        else if (playerTwo.getScore() == 1) return "Fifteen";
+        else if (playerTwo.getScore() == 2) return "Thirty";
         else return "Forty";
     }
 
     public void playerOneScores() {
-        playerOneScore++;
+        playerOne.plusScore();
     }
 
     public void playerTwoScores() {
-        playerTwoScore++;
+        playerTwo.plusScore();
     }
 }
