@@ -74,8 +74,12 @@ public class TennisTest {
     @Test
     public void testPlayerTwoWinsGame(){
         createScore(1,4);
-
         assertScore("Rafael Nadal wins");
     }
 
+    @Test
+    void testPlayersAreDeuce4() throws Exception {
+        createScore(4, 4);
+        assertScore("Deuce");
+    }
 }
