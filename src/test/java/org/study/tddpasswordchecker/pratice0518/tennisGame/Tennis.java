@@ -16,6 +16,7 @@ public class Tennis {
             return "Fifteen all";
         }
         if (playerOneScore == 1) return "Fifteen,Love";
+        if (playerTwoScore == 2) return "Love,Thirty";
         return "Love all";
     }
 

@@ -19,6 +19,16 @@ public class TennisTest {
         assertThat(score).isEqualTo(expectedScore);
     }
 
+    private void createScore(int playerOneScores, int playerTwoScores) {
+        for (int i = 0; i < playerOneScores; i++) {
+            tennis.playerOneScores();
+        }
+
+        for (int i = 0; i < playerTwoScores; i++) {
+            tennis.playerTwoScores();
+        }
+    }
+
     @Test
     void testNewGameShouldReturnLoveAll() {
         assertScore("Love all");
@@ -36,5 +46,12 @@ public class TennisTest {
         tennis.playerTwoScores();
         assertScore("Fifteen all");
     }
+
+    @Test
+    void testPlayerTwoWinsFirstTwoBalls() {
+        createScore(0, 2);
+        assertScore("Love,Thirty");
+    }
+
 
 }
