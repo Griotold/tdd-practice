@@ -71,4 +71,11 @@ public class TennisTest {
         assertScore("Novak Dokovic wins");
     }
 
+    @Test
+    public void testPlayerTwoWinsGame(){
+        createScore(1,4);
+
+        assertScore("Rafael Nadal wins");
+    }
+
 }
