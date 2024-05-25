@@ -5,6 +5,7 @@ package org.study.tddpasswordchecker.pratice0518.tennisGame;
 public class Tennis {
     private Player playerOne;
     private Player playerTwo;
+    private static final String[] SCORE_NAMES = {"Love" , "Fifteen", "Thirty", "Forty"};
 
     public Tennis(String playerOneName, String playerTwoName) {
         this.playerOne = new Player(playerOneName);
@@ -19,16 +20,16 @@ public class Tennis {
             return "Advantage " + getAdvantageName();
         }
         if (isDeuce()) return "Deuce";
-        if (isSame()) {
-            return getSameScore();
-        }
-        return getPlayerOneScoreName() + "," + getPlayerTwoScoreName();
+        if (isSame()) return getSameScoreName();
+        return getScoreName(playerOne.getScore()) + "," + getScoreName(playerTwo.getScore());
     }
 
-    private String getSameScore() {
-        if (playerOne.getScore() == 0) return "Love all";
-        else if (playerOne.getScore() == 1) return "Fifteen all";
-        else return "Thirty all";
+    private String getScoreName(int score) {
+        return SCORE_NAMES[score];
+    }
+
+    private String getSameScoreName() {
+        return SCORE_NAMES[playerOne.getScore()] + " all";
     }
 
     private String getAdvantageName() {
