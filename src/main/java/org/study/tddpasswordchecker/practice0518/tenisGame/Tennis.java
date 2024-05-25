@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.pratice0518.tennisGame;
+package org.study.tddpasswordchecker.practice0518.tenisGame;
 
 
 

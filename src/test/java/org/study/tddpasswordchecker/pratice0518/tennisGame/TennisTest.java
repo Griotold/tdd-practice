@@ -2,6 +2,7 @@ package org.study.tddpasswordchecker.pratice0518.tennisGame;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.study.tddpasswordchecker.practice0518.tenisGame.Tennis;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
