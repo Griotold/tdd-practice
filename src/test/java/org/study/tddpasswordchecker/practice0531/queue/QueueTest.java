@@ -74,4 +74,16 @@ public class QueueTest {
         assertThat(queue.dequeue()).isEqualTo(2);
         assertThat(queue.dequeue()).isEqualTo(3);
     }
+
+    @Test
+    void enqueue_different_data_type_test() {
+        queue.enqueue("string");
+        queue.enqueue(1);
+        queue.enqueue(3.14);
+
+        assertThat(queue.dequeue()).isEqualTo("string");
+        assertThat(queue.dequeue()).isEqualTo(1);
+        assertThat(queue.dequeue()).isEqualTo(3.14);
+    }
+
 }
