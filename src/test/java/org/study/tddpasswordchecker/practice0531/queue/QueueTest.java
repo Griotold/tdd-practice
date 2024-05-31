@@ -56,8 +56,14 @@ public class QueueTest {
     }
 
     @Test
-    void peek_when_list_size_0_then_exception() {
+    void peek_when_queue_size_0_then_exception() {
         assertThatThrownBy(() -> queue.peek())
+                .isInstanceOf(IllegalStateException.class);
+    }
+
+    @Test
+    void dequeue_when_queue_size_0_then_exception() {
+        assertThatThrownBy(() -> queue.dequeue())
                 .isInstanceOf(IllegalStateException.class);
     }
 }

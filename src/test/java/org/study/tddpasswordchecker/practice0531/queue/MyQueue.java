@@ -15,6 +15,7 @@ public class MyQueue {
     }
 
     public Object dequeue() {
+        if (list.isEmpty()) throw new IllegalStateException();
         return list.remove(0);
     }
 
