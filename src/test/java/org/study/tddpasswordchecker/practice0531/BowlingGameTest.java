@@ -14,6 +14,12 @@ public class BowlingGameTest {
         bowlingGame = new BowlingGame();
     }
 
+    void rollMany(int times, int pins) {
+        for (int i = 0; i < times; i++) {
+            bowlingGame.roll(pins);
+        }
+    }
+
     @Test
     void canRoll() {
         bowlingGame.roll(0);
@@ -21,18 +27,14 @@ public class BowlingGameTest {
 
     @Test
     void gutterGame() {
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(0);
-        }
+        rollMany(20, 0);
         int score = bowlingGame.getScore();
         assertThat(score).isEqualTo(0);
     }
 
     @Test
     void allRollsKnockDownOnePin() {
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(1);
-        }
+        rollMany(20, 1);
         int score = bowlingGame.getScore();
         assertThat(score).isEqualTo(20);
     }
