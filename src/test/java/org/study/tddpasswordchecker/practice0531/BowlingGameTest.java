@@ -37,7 +37,6 @@ public class BowlingGameTest {
         int score = bowlingGame.getScore();
         assertThat(score).isEqualTo(20);
     }
-    @Disabled
     @Test
     void testOneSpare() {
         bowlingGame.roll(5);
