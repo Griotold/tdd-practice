@@ -17,4 +17,8 @@ public class MyQueue {
     public Object dequeue() {
         return list.remove(0);
     }
+
+    public Object peek() {
+        return list.get(0);
+    }
 }

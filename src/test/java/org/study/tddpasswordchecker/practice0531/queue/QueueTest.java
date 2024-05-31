@@ -43,4 +43,15 @@ public class QueueTest {
         assertThat(size2).isEqualTo(0);
         assertThat(result).isEqualTo(5);
     }
+
+    @Test
+    void peekTest() {
+        queue.enqueue(5);
+        queue.enqueue(3);
+
+        Object result = queue.peek();
+        int size = queue.size();
+        assertThat(result).isEqualTo(5);
+        assertThat(size).isEqualTo(2);
+    }
 }
