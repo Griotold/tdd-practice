@@ -1,13 +1,10 @@
 package org.study.tddpasswordchecker.practice0531.queue;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 // The queue should have the following methods:
 //Enqueue(object): Adds an element to the queue.
@@ -65,5 +62,16 @@ public class QueueTest {
     void dequeue_when_queue_size_0_then_exception() {
         assertThatThrownBy(() -> queue.dequeue())
                 .isInstanceOf(IllegalStateException.class);
+    }
+
+    @Test
+    void multiple_enqueue_and_dequeue_test() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        assertThat(queue.dequeue()).isEqualTo(1);
+        assertThat(queue.dequeue()).isEqualTo(2);
+        assertThat(queue.dequeue()).isEqualTo(3);
     }
 }
