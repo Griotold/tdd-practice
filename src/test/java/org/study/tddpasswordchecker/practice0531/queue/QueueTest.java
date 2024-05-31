@@ -54,4 +54,10 @@ public class QueueTest {
         assertThat(result).isEqualTo(5);
         assertThat(size).isEqualTo(2);
     }
+
+    @Test
+    void peek_when_list_size_0_then_exception() {
+        assertThatThrownBy(() -> queue.peek())
+                .isInstanceOf(IllegalStateException.class);
+    }
 }

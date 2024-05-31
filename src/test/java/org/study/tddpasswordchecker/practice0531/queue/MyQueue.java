@@ -19,6 +19,7 @@ public class MyQueue {
     }
 
     public Object peek() {
+        if (list.isEmpty()) throw  new IllegalStateException();
         return list.get(0);
     }
 }
