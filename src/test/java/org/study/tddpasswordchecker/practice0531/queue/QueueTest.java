@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+
 import static org.assertj.core.api.Assertions.*;
 
 // The queue should have the following methods:
@@ -28,5 +30,17 @@ public class QueueTest {
         queue.enqueue(6);
         int size2 = queue.size();
         assertThat(size2).isEqualTo(2);
+    }
+
+    @Test
+    void dequeueTest() {
+        queue.enqueue(5);
+        int size = queue.size();
+        assertThat(size).isEqualTo(1);
+
+        Object result = queue.dequeue();
+        int size2 = queue.size();
+        assertThat(size2).isEqualTo(0);
+        assertThat(result).isEqualTo(5);
     }
 }

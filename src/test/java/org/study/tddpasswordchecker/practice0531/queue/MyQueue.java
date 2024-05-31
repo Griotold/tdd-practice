@@ -13,4 +13,8 @@ public class MyQueue {
     public int size() {
         return list.size();
     }
+
+    public Object dequeue() {
+        return list.remove(0);
+    }
 }
