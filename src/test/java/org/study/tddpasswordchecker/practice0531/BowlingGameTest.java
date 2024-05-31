@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class BowlingGameTest {
     BowlingGame bowlingGame;
 
@@ -23,7 +25,16 @@ public class BowlingGameTest {
             bowlingGame.roll(0);
         }
         int score = bowlingGame.getScore();
-        Assertions.assertThat(score).isEqualTo(0);
+        assertThat(score).isEqualTo(0);
+    }
+
+    @Test
+    void allRollsKnockDownOnePin() {
+        for (int i = 0; i < 20; i++) {
+            bowlingGame.roll(1);
+        }
+        int score = bowlingGame.getScore();
+        assertThat(score).isEqualTo(20);
     }
 
 }
