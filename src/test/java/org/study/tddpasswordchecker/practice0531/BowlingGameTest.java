@@ -26,6 +26,11 @@ public class BowlingGameTest {
         assertThat(score).isEqualTo(expectedScore);
     }
 
+    private void rollSpare() {
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);
+    }
+
     @Test
     void canRoll() {
         bowlingGame.roll(0);
@@ -51,8 +56,12 @@ public class BowlingGameTest {
         assertScore(16);
     }
 
-    private void rollSpare() {
-        bowlingGame.roll(5);
-        bowlingGame.roll(5);
+    @Test
+    void OneStrike() {
+        bowlingGame.roll(10); // strike
+        bowlingGame.roll(8);
+        bowlingGame.roll(7);
+        rollMany(16, 0);
+        assertScore(40);
     }
 }
