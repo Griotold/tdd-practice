@@ -11,10 +11,11 @@ public class UserRegisterTest {
     private UserRegister userRegister;
     private StubWeakPasswordChecker stubWeakPasswordChecker = new StubWeakPasswordChecker();
     private MemoryUserRepository fakeRepository = new MemoryUserRepository();
+    private SpyEmailNotifier spyEmailNotifier = new SpyEmailNotifier();
 
     @BeforeEach
     void setUp() {
-        userRegister = new UserRegister(stubWeakPasswordChecker, fakeRepository);
+        userRegister = new UserRegister(stubWeakPasswordChecker, fakeRepository, spyEmailNotifier);
     }
 
     @DisplayName("약한 암호면 가입 실패")
@@ -43,6 +44,16 @@ public class UserRegisterTest {
         User user = fakeRepository.findById("id");
         assertThat(user.getId()).isEqualTo("id");
         assertThat(user.getPassword()).isEqualTo("pw");
+    }
+
+    @DisplayName("가입하면 메일을 전송함")
+    @Test
+    void when_register_then_send_mail() {
+        userRegister.register("id", "pw", "email@email.com");
+
+        assertThat(spyEmailNotifier.isCalled()).isTrue();
+        assertThat(spyEmailNotifier.getEmail()).isEqualTo("email@email.com");
+
     }
 
 }
