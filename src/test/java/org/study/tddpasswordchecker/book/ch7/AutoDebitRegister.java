@@ -27,6 +27,6 @@ public class AutoDebitRegister {
             AutoDebitInfo newInfo = new AutoDebitInfo(req.getUserId(), req.getCardNumber(), LocalDateTime.now());
             repository.save(newInfo);
         }
-        return RegisterResult.success();
+        return RegisterResult.success(validity);
     }
 }
