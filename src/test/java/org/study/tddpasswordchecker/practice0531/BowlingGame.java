@@ -13,15 +13,19 @@ public class BowlingGame {
 
     public int getScore() {
         int score = 0;
-        int i = 0;
+        int firstRollInFrame = 0;
         for (int frame = 0; frame < 10; frame++) {
-            if (rolls[i] + rolls[i + 1] == 10) {    // spare
-                score += 10 + rolls[i + 2];
+            if (isSpare(firstRollInFrame)) {
+                score += 10 + rolls[firstRollInFrame + 2];
             } else {
-                score += rolls[i] + rolls[i + 1];
+                score += rolls[firstRollInFrame] + rolls[firstRollInFrame + 1];
             }
-            i += 2;
+            firstRollInFrame += 2;
         }
         return score;
+    }
+
+    private boolean isSpare(int firstRollInFrame) {
+        return rolls[firstRollInFrame] + rolls[firstRollInFrame + 1] == 10;
     }
 }
