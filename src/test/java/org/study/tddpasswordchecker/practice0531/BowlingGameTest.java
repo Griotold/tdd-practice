@@ -42,7 +42,7 @@ public class BowlingGameTest {
         rollMany(20, 1);
         assertScore(20);
     }
-    @Disabled
+
     @Test
     void testOneSpare() {
         bowlingGame.roll(5);
