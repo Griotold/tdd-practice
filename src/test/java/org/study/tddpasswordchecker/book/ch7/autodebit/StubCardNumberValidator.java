@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.book.ch7;
+package org.study.tddpasswordchecker.book.ch7.autodebit;
 
 public class StubCardNumberValidator extends CardNumberValidator {
     private String invalidNo;

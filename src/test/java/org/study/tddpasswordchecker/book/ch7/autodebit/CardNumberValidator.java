@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.book.ch7;
+package org.study.tddpasswordchecker.book.ch7.autodebit;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,6 +1,6 @@
-package org.study.tddpasswordchecker.book.ch7;
+package org.study.tddpasswordchecker.book.ch7.autodebit;
 
-public class StubAutoDebitInfoRepository implements AutoDebitInfoRepository {
+public class JpaAutoDebitInfoRepository implements AutoDebitInfoRepository {
     @Override
     public AutoDebitInfo findOne(String userId) {
         return null;
