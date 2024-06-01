@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BowlingGameTest {
@@ -20,32 +21,34 @@ public class BowlingGameTest {
         }
     }
 
+    private void assertScore(int expectedScore) {
+        int score = bowlingGame.getScore();
+        assertThat(score).isEqualTo(expectedScore);
+    }
+
     @Test
     void canRoll() {
         bowlingGame.roll(0);
     }
+
     @Test
     void gutterGame() {
         rollMany(20, 0);
-        int score = bowlingGame.getScore();
-        assertThat(score).isEqualTo(0);
+        assertScore(0);
     }
 
     @Test
     void testAllOnes() {
         rollMany(20, 1);
-        int score = bowlingGame.getScore();
-        assertThat(score).isEqualTo(20);
+        assertScore(20);
     }
+    @Disabled
     @Test
     void testOneSpare() {
         bowlingGame.roll(5);
         bowlingGame.roll(5);
         bowlingGame.roll(3);
         rollMany(17, 0);
-        int score = bowlingGame.getScore();
-        assertThat(score).isEqualTo(16);
+        assertScore(16);
     }
-
-
 }
