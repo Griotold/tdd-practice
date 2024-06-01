@@ -45,10 +45,14 @@ public class BowlingGameTest {
 
     @Test
     void testOneSpare() {
-        bowlingGame.roll(5);
-        bowlingGame.roll(5);
+        rollSpare();
         bowlingGame.roll(3);
         rollMany(17, 0);
         assertScore(16);
+    }
+
+    private void rollSpare() {
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);
     }
 }
