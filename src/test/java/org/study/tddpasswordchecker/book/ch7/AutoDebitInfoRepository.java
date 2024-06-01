@@ -1,13 +1,8 @@
 package org.study.tddpasswordchecker.book.ch7;
 
-public class AutoDebitInfoRepository {
+public interface AutoDebitInfoRepository {
 
-    public AutoDebitInfo findOne(String userId) {
+    public AutoDebitInfo findOne(String userId);
 
-        return null;
-    }
-
-    public void save(AutoDebitInfo newInfo) {
-
-    }
+    public void save(AutoDebitInfo newInfo);
 }
