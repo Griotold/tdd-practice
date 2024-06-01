@@ -58,10 +58,14 @@ public class BowlingGameTest {
 
     @Test
     void OneStrike() {
-        bowlingGame.roll(10); // strike
+        rollStrike();
         bowlingGame.roll(8);
         bowlingGame.roll(7);
         rollMany(16, 0);
         assertScore(40);
+    }
+
+    private void rollStrike() {
+        bowlingGame.roll(10);
     }
 }
