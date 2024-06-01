@@ -31,6 +31,10 @@ public class BowlingGameTest {
         bowlingGame.roll(5);
     }
 
+    private void rollStrike() {
+        bowlingGame.roll(10);
+    }
+
     @Test
     void canRoll() {
         bowlingGame.roll(0);
@@ -65,7 +69,11 @@ public class BowlingGameTest {
         assertScore(40);
     }
 
-    private void rollStrike() {
+    @Test
+    void perfectGame() {
+        rollMany(10, 10);
         bowlingGame.roll(10);
+        bowlingGame.roll(10);
+        assertScore(300);
     }
 }
