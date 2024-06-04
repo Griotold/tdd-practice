@@ -1,4 +1,4 @@
-package org.study.tddpasswordchecker.kim.string;
+package org.study.tddpasswordchecker.kim;
 
 public class FindingCharacter {
     public int find(String str, char c) {
