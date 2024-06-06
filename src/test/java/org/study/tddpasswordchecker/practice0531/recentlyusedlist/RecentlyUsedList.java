@@ -8,4 +8,16 @@ public class RecentlyUsedList {
     public List<String> getList() {
         return list;
     }
+
+    public void add(String input) {
+        boolean isDuplicate = false;
+        for (String element : list) {
+            if (element.equals(input)) {
+                isDuplicate = true;
+            }
+        }
+        if (!isDuplicate) {
+            list.add(input);
+        }
+    }
 }

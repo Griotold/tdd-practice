@@ -29,4 +29,14 @@ public class RecentlyUsedListTest {
     void testOne() {
         assertList(Collections.emptyList());
     }
+
+    @DisplayName("중복된 요소는 리스트에 넣지 않는다.")
+    @Test
+    void testTwo() {
+        recentlyUsedList.add("str");
+        recentlyUsedList.add("str");
+
+        List<String> expected = List.of("str");
+        assertList(expected);
+    }
 }
