@@ -17,7 +17,7 @@ public class RecentlyUsedList {
             }
         }
         if (!isDuplicate) {
-            list.add(input);
+            list.addFirst(input);
         }
     }
 }

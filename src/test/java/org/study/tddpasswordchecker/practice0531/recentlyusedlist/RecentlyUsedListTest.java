@@ -39,4 +39,14 @@ public class RecentlyUsedListTest {
         List<String> expected = List.of("str");
         assertList(expected);
     }
+
+    @DisplayName("최근에 넣었던 요소가 가장 먼저 나온다.")
+    @Test
+    void testThree() {
+        recentlyUsedList.add("aaa");
+        recentlyUsedList.add("bbb");
+
+        List<String> expected = List.of("bbb", "aaa");
+        assertList(expected);
+    }
 }
