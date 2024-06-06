@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class RecentlyUsedListTest {
         assertThat(list).isEqualTo(expected);
     }
 
+    private void addMany(String... strings) {
+        for (String string : strings) {
+            recentlyUsedList.add(string);
+        }
+    }
+
     @DisplayName("초기에는 비어있는 리스트를 반환")
     @Test
     void testOne() {
@@ -33,9 +40,7 @@ public class RecentlyUsedListTest {
     @DisplayName("중복된 요소는 리스트에 넣지 않는다.")
     @Test
     void testTwo() {
-        recentlyUsedList.add("str");
-        recentlyUsedList.add("str");
-
+        addMany("str", "str");
         List<String> expected = List.of("str");
         assertList(expected);
     }
@@ -43,10 +48,18 @@ public class RecentlyUsedListTest {
     @DisplayName("최근에 넣었던 요소가 가장 먼저 나온다.")
     @Test
     void testThree() {
-        recentlyUsedList.add("aaa");
-        recentlyUsedList.add("bbb");
-
+        addMany("aaa", "bbb");
         List<String> expected = List.of("bbb", "aaa");
         assertList(expected);
     }
+
+    @DisplayName("최근에 넣었던 요소가 가장 먼저 나온다. - 2")
+    @Test
+    void testFour() {
+        addMany("aaa", "bbb", "ccc");
+        List<String> expected = List.of("ccc", "bbb", "aaa");
+        assertList(expected);
+    }
+
+
 }
