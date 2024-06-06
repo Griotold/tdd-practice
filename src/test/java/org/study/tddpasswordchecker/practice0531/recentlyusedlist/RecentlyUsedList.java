@@ -11,12 +11,18 @@ public class RecentlyUsedList {
 
     public void add(String input) {
         boolean isDuplicate = false;
+        int duplicateIndex = 0;
         for (String element : list) {
             if (element.equals(input)) {
                 isDuplicate = true;
+                break;
             }
+            duplicateIndex++;
         }
-        if (!isDuplicate) {
+        if (isDuplicate) {
+            String removed = list.remove(duplicateIndex);
+            list.addFirst(removed);
+        } else {
             list.addFirst(input);
         }
     }

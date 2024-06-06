@@ -61,5 +61,12 @@ public class RecentlyUsedListTest {
         assertList(expected);
     }
 
+    @DisplayName("중복 요소를 넣으면 순서가 맨 앞으로 바뀐다.")
+    @Test
+    void testFive() {
+        addMany("aaa", "bbb", "aaa");
+        List<String> expected = List.of("aaa", "bbb");
+        assertList(expected);
+    }
 
 }
