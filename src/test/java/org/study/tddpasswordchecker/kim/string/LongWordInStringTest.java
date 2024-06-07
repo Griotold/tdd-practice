@@ -24,7 +24,12 @@ public class LongWordInStringTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-
+    @DisplayName("null 을 넣으면 IllegalArgumentException")
+    @Test
+    void testNull() {
+        assertThatThrownBy(() -> longWordInString.getLongWord(null))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Disabled
     @DisplayName("it is time to study -> study")
