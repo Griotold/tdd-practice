@@ -35,8 +35,16 @@ public class LongWordInStringTest {
     @Test
     void testOne() {
         String input = "it is time to study";
-        String reuslt = longWordInString.getLongWord(input);
-        assertThat(reuslt).isEqualTo("study");
+        String result = longWordInString.getLongWord(input);
+        assertThat(result).isEqualTo("study");
+    }
+
+    @DisplayName("your finger is long -> finger")
+    @Test
+    void testTwo() {
+        String input = "your finger is long";
+        String result = longWordInString.getLongWord(input);
+        assertThat(result).isEqualTo("finger");
     }
 
 }
