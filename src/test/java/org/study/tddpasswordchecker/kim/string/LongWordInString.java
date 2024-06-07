@@ -5,7 +5,6 @@ public class LongWordInString {
     public String getLongWord(String input) {
         if (isBadInput(input)) throw new IllegalArgumentException();
 
-        // it is time to study
         String[] split = input.split(" ");
         String result = "";
         int max = Integer.MIN_VALUE;

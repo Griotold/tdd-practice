@@ -46,7 +46,12 @@ public class LongWordInStringTest {
     @Test
     void testTwo() {
         assertLong("your finger is long", "finger");
+    }
 
+    @DisplayName("만약 가장 긴 단어가 2개라면? 가장 앞에 나오는 단어")
+    @Test
+    void testThree() {
+        assertLong("your pants is short", "pants");
     }
 
 }
