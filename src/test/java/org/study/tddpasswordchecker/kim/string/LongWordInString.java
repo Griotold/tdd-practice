@@ -3,8 +3,11 @@ package org.study.tddpasswordchecker.kim.string;
 public class LongWordInString {
 
     public String getLongWord(String input) {
-        if (input == null) throw new IllegalArgumentException();
-        if (input.isEmpty()) throw new IllegalArgumentException();
+        if (isBadInput(input)) throw new IllegalArgumentException();
         return null;
+    }
+
+    private boolean isBadInput(String input) {
+        return input == null || input.isEmpty();
     }
 }
