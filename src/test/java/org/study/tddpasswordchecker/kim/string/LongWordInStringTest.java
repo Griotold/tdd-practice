@@ -31,7 +31,6 @@ public class LongWordInStringTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Disabled
     @DisplayName("it is time to study -> study")
     @Test
     void testOne() {
@@ -39,4 +38,5 @@ public class LongWordInStringTest {
         String reuslt = longWordInString.getLongWord(input);
         assertThat(reuslt).isEqualTo("study");
     }
+
 }
