@@ -17,6 +17,11 @@ public class LongWordInStringTest {
         this.longWordInString = new LongWordInString();
     }
 
+    private void assertLong(String input, String expected) {
+        String result = longWordInString.getLongWord(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("공백 문자열을 넣으면 IllegalArgumentException")
     @Test
     void testEmptyString() {
@@ -34,17 +39,14 @@ public class LongWordInStringTest {
     @DisplayName("it is time to study -> study")
     @Test
     void testOne() {
-        String input = "it is time to study";
-        String result = longWordInString.getLongWord(input);
-        assertThat(result).isEqualTo("study");
+        assertLong("it is time to study", "study");
     }
 
     @DisplayName("your finger is long -> finger")
     @Test
     void testTwo() {
-        String input = "your finger is long";
-        String result = longWordInString.getLongWord(input);
-        assertThat(result).isEqualTo("finger");
+        assertLong("your finger is long", "finger");
+
     }
 
 }
