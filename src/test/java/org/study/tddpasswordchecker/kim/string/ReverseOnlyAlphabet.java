@@ -4,6 +4,6 @@ public class ReverseOnlyAlphabet {
     public String reverse(String input) {
         if (input == null) throw new IllegalArgumentException();
 
-        return "";
+        return new StringBuilder(input).reverse().toString();
     }
 }

@@ -16,6 +16,11 @@ public class ReverseOnlyAlphabetTest {
         reverseOnlyAlphabet = new ReverseOnlyAlphabet();
     }
 
+    private void assertReverse(String input, String expected) {
+        String result = reverseOnlyAlphabet.reverse(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("null 을 입력하면 예외")
     @Test
     void testOne() {
@@ -26,8 +31,13 @@ public class ReverseOnlyAlphabetTest {
     @DisplayName("공백 문자를 입력하면 그대로 공백 문자 리턴")
     @Test
     void testTwo() {
-        String result = reverseOnlyAlphabet.reverse("");
-        assertThat(result).isEqualTo("");
+        assertReverse("", "");
     }
 
+    @DisplayName("알파벳만 있는 경우는 그냥 뒤집으면 됨")
+    @Test
+    void testThree() {
+        assertReverse("abc", "cba");
+    }
 }
+
