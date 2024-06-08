@@ -39,5 +39,17 @@ public class ReverseOnlyAlphabetTest {
     void testThree() {
         assertReverse("abc", "cba");
     }
+
+    @DisplayName("특수문자는 그대로 둬야함")
+    @Test
+    void testFour() {
+        assertReverse("ab!d", "db!a");
+    }
+
+    @DisplayName("문제에서 제시한 테스트 케이스")
+    @Test
+    void testFive() {
+        assertReverse("a#b!GE*T@S", "S#T!EG*b@a");
+    }
 }
 
