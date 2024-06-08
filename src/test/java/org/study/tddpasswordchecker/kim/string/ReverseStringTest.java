@@ -30,4 +30,11 @@ public class ReverseStringTest {
         assertThat(result).isEqualTo("");
     }
 
+    @DisplayName("abc가 입력되면 cba 리턴")
+    @Test
+    void testThree() {
+        String result = reverseString.reverse("abc");
+        assertThat(result).isEqualTo("cba");
+    }
+
 }
