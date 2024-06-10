@@ -31,4 +31,16 @@ public class RemoveDuplicateStringTest {
     void testTwo() {
         assertResult("griotold", "griotld");
     }
+
+    @DisplayName("중복이 두 개 있는 문자열")
+    @Test
+    void testThree() {
+        assertResult("griotolod", "griotld");
+    }
+
+    @DisplayName("문제에서 제시한 테스트 케이스")
+    @Test
+    void testFour() {
+        assertResult("ksekkset", "kset");
+    }
 }
