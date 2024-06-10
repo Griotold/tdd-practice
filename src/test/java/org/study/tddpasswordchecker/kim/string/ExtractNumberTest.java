@@ -15,24 +15,26 @@ public class ExtractNumberTest {
         this.extractNumber = new ExtractNumber();
     }
 
+    private void assertExtractNumber(String input, int expected) {
+        int result = extractNumber.extract(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("a1b2 -> 12")
     @Test
     void testOne() {
-        int result = extractNumber.extract("a1b2");
-        assertThat(result).isEqualTo(12);
+        assertExtractNumber("a1b2", 12);
     }
 
     @DisplayName("tge0a1h205er -> 1205")
     @Test
     void testTwo() {
-        int result = extractNumber.extract("tge0a1h205er");
-        assertThat(result).isEqualTo(1205);
+        assertExtractNumber("tge0a1h205er", 1205);
     }
 
     @DisplayName("g0en2T0s8eSoft -> 208")
     @Test
     void testThree() {
-        int result = extractNumber.extract("g0en2T0s8eSoft");
-        assertThat(result).isEqualTo(208);
+        assertExtractNumber("g0en2T0s8eSoft", 208);
     }
 }
