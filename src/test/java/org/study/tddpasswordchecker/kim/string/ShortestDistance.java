@@ -12,16 +12,12 @@ public class ShortestDistance {
     private int[] populateDistanceArray(String input, char target) {
         int[] distanceArray = new int[input.length()];
         Arrays.fill(distanceArray, Integer.MAX_VALUE);
-        for (int i = 0; i < input.length(); i++) {
-            int count = 0;
-            for (int j = i; j < input.length(); j++) {
-                if (input.charAt(j) == target) {
-                    distanceArray[i] = Math.min(distanceArray[i], count);
-                }
-                count++;
-            }
-        }
+        populatePositiveOrder(input, target, distanceArray);
+        populateNegativeOrder(input, target, distanceArray);
+        return distanceArray;
+    }
 
+    private void populateNegativeOrder(String input, char target, int[] distanceArray) {
         for (int i = input.length() - 1; i >= 0; i--) {
             int count = 0;
             for (int j = i; j >= 0; j--) {
@@ -31,7 +27,18 @@ public class ShortestDistance {
                 count++;
             }
         }
-        return distanceArray;
+    }
+
+    private void populatePositiveOrder(String input, char target, int[] distanceArray) {
+        for (int i = 0; i < input.length(); i++) {
+            int count = 0;
+            for (int j = i; j < input.length(); j++) {
+                if (input.charAt(j) == target) {
+                    distanceArray[i] = Math.min(distanceArray[i], count);
+                }
+                count++;
+            }
+        }
     }
 
     private String getResult(int[] distanceArray) {
