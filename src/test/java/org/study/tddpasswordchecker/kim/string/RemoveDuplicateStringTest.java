@@ -15,11 +15,14 @@ public class RemoveDuplicateStringTest {
         this.removeDuplicateString = new RemoveDuplicateString();
     }
 
+    private void assertResult(String input, String expected) {
+        String result = removeDuplicateString.removeDuplicated(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("중복이 없는 문자열은 그대로 리턴")
     @Test
     void testOne() {
-        String input = "grio";
-        String result = removeDuplicateString.removeDuplicated(input);
-        assertThat(result).isEqualTo("grio");
+        assertResult("grio", "grio");
     }
 }
