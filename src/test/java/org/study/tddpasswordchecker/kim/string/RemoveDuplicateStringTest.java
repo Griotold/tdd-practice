@@ -25,4 +25,10 @@ public class RemoveDuplicateStringTest {
     void testOne() {
         assertResult("grio", "grio");
     }
+
+    @DisplayName("중복이 하나 있는 문자열")
+    @Test
+    void testTwo() {
+        assertResult("griotold", "griotld");
+    }
 }
