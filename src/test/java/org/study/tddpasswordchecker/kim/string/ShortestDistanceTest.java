@@ -22,4 +22,13 @@ public class ShortestDistanceTest {
         String result = shortestDistance.getEachDistances(input, target);
         Assertions.assertThat(result).isEqualTo("1 0");
     }
+
+    @DisplayName("abc, b -> 1 0 1")
+    @Test
+    void testThree() {
+        String input = "abc";
+        char target = 'b';
+        String result = shortestDistance.getEachDistances(input, target);
+        Assertions.assertThat(result).isEqualTo("1 0 1");
+    }
 }
