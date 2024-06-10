@@ -35,4 +35,10 @@ public class StringCompressorTest {
     void testThree() {
         assertCompress("KKHSSSSSSSE", "K2HS7E");
     }
+
+    @DisplayName("KSTTTSEEKFKKKDJJGG -> KST3SE2KFK3DJ2G2")
+    @Test
+    void testFour() {
+        assertCompress("KSTTTSEEKFKKKDJJGG", "KST3SE2KFK3DJ2G2");
+    }
 }
