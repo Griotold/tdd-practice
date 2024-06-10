@@ -32,4 +32,10 @@ public class PalindromeCheckerTest {
     void testTwo() {
         assertPalindrome("Aba", "YES");
     }
+
+    @DisplayName("abc -> NO")
+    @Test
+    void testThree() {
+        assertPalindrome("abc", "NO");
+    }
 }
