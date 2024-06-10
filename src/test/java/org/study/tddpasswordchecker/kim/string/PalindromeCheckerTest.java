@@ -38,4 +38,10 @@ public class PalindromeCheckerTest {
     void testThree() {
         assertPalindrome("abc", "NO");
     }
+
+    @DisplayName("문제에서 제시한 테스트 케이스")
+    @Test
+    void testFour() {
+        assertPalindrome("gooG", "YES");
+    }
 }
