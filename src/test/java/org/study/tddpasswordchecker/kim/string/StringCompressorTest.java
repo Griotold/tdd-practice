@@ -23,4 +23,10 @@ public class StringCompressorTest {
     void testOne() {
         assertCompress("abccc", "abc3");
     }
+
+    @DisplayName("abbbc -> ab3c")
+    @Test
+    void testTwo() {
+        assertCompress("abbbc", "ab3c");
+    }
 }
