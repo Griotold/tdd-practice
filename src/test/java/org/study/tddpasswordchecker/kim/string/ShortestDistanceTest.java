@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class ShortestDistanceTest {
 
     private ShortestDistance shortestDistance;
@@ -14,21 +16,22 @@ public class ShortestDistanceTest {
         this.shortestDistance = new ShortestDistance();
     }
 
+    private void assertDistance(String input, char target, String expected) {
+        String result = shortestDistance.getEachDistances(input, target);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("ab, b -> 1 0")
     @Test
     void testOne() {
-        String input = "ab";
-        char target = 'b';
-        String result = shortestDistance.getEachDistances(input, target);
-        Assertions.assertThat(result).isEqualTo("1 0");
+        assertDistance("ab", 'b', "1 0");
     }
 
     @DisplayName("abc, b -> 1 0 1")
     @Test
     void testThree() {
-        String input = "abc";
-        char target = 'b';
-        String result = shortestDistance.getEachDistances(input, target);
-        Assertions.assertThat(result).isEqualTo("1 0 1");
+        assertDistance("abc", 'b', "1 0 1");
     }
+
+
 }
