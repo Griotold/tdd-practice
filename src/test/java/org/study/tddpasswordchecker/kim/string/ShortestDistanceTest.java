@@ -33,5 +33,9 @@ public class ShortestDistanceTest {
         assertDistance("abc", 'b', "1 0 1");
     }
 
-
+    @DisplayName("teachermode e -> 1 0 1 2 1 0 1 2 2 1 0")
+    @Test
+    void testFour() {
+        assertDistance("teachermode", 'e', "1 0 1 2 1 0 1 2 2 1 0");
+    }
 }
