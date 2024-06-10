@@ -14,6 +14,10 @@ public class BiggerThanPrev {
             }
         }
 
+        return getResult(intArray);
+    }
+
+    private static String getResult(int[] intArray) {
         String result = "";
         for (int num : intArray) {
             if (num > 0) {
