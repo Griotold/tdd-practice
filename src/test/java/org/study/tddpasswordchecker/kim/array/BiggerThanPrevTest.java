@@ -19,4 +19,28 @@ public class BiggerThanPrevTest {
         String result = biggerThanPrev.filter(ea, input);
         Assertions.assertThat(result).isEqualTo("1 23 45");
     }
+
+    @Test
+    void testTwo() {
+        int ea = 4;
+        String input = "1 78 32 54";
+        String result = biggerThanPrev.filter(ea, input);
+        Assertions.assertThat(result).isEqualTo("1 78 54");
+    }
+
+    @Test
+    void testThree() {
+        int ea = 6;
+        String input = "7 3 9 5 6 12";
+        String result = biggerThanPrev.filter(ea, input);
+        Assertions.assertThat(result).isEqualTo("7 9 6 12");
+    }
+
+    @Test
+    void testFour() {
+        int ea = 5;
+        String input = "7 3 2 1 6";
+        String result = biggerThanPrev.filter(ea, input);
+        Assertions.assertThat(result).isEqualTo("7 6");
+    }
 }

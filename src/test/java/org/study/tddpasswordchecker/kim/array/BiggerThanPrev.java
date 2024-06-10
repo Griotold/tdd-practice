@@ -1,17 +1,31 @@
 package org.study.tddpasswordchecker.kim.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BiggerThanPrev {
     public String filter(int ea, String input) {
         int[] intArray = new int[ea];
         initializeArray(ea, input, intArray);
+        List<Integer> answerList = initializeAnswerList(intArray);
 
+        biggerThanPrevThenAdd(ea, intArray, answerList);
+
+        return getResult(answerList);
+    }
+
+    private static void biggerThanPrevThenAdd(int ea, int[] intArray, List<Integer> answerList) {
         for (int i = 1; i < ea; i++) {
-            if (intArray[i - 1] > intArray[i]) {
-                intArray[i] = 0;
+            if (intArray[i - 1] < intArray[i]) {
+                answerList.add(intArray[i]);
             }
         }
+    }
 
-        return getResult(intArray);
+    private static List<Integer> initializeAnswerList(int[] intArray) {
+        List<Integer> answerList = new ArrayList<>();
+        answerList.add(intArray[0]);
+        return answerList;
     }
 
     private void initializeArray(int ea, String input, int[] intArray) {
@@ -21,13 +35,11 @@ public class BiggerThanPrev {
         }
     }
 
-    private String getResult(int[] intArray) {
+    private String getResult(List<Integer> answerList) {
         String result = "";
-        for (int num : intArray) {
-            if (num > 0) {
-                if (result.equals("")) result += num;
-                else result += " " + num;
-            }
+        for (int num : answerList) {
+            if (result.equals("")) result += num;
+            else result += " " + num;
         }
         return result;
     }
