@@ -6,9 +6,14 @@ import java.util.List;
 public class VisibleStudents {
     public int retrieveStudentsCount(String input) {
         List<Integer> list = convertToList(input);
+        int count = getCount(list);
+        return count;
+    }
+
+    private int getCount(List<Integer> list) {
         int max = 0;
         int count = 0;
-        for (int num :list){
+        for (int num : list){
             if (num > max){
                 count++;
                 max = num;
