@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class VisibleStudentsTest {
     private VisibleStudents visibleStudents;
 
@@ -13,14 +15,21 @@ public class VisibleStudentsTest {
         this.visibleStudents = new VisibleStudents();
     }
 
+    void assertCount(String input, int expected) {
+        int result = visibleStudents.retrieveStudentsCount(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("100 110 120 -> 3")
     @Test
     void testOne() {
-        String input = "100 110 120";
-        int result = visibleStudents.retrieveStudentsCount(input);
-        Assertions.assertThat(result).isEqualTo(3);
+        assertCount("100 110 120", 3);
     }
 
-
+    @DisplayName("120 110 100 -> 1")
+    @Test
+    void testTwo() {
+        assertCount("120 110 100", 1);
+    }
 
 }
