@@ -38,4 +38,9 @@ public class VisibleStudentsTest {
         assertCount("120 110 130 135 125", 3);
     }
 
+    @DisplayName("문제에서 제시한 테스트 케이스")
+    @Test
+    void testFour() {
+        assertCount("130 135 148 140 145 150 150 153", 5);
+    }
 }
