@@ -6,8 +6,7 @@ import java.util.List;
 public class VisibleStudents {
     public int retrieveStudentsCount(String input) {
         List<Integer> list = convertToList(input);
-        int count = getCount(list);
-        return count;
+        return getCount(list);
     }
 
     private int getCount(List<Integer> list) {

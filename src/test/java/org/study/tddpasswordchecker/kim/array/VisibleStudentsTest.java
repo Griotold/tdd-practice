@@ -32,4 +32,10 @@ public class VisibleStudentsTest {
         assertCount("120 110 100", 1);
     }
 
+    @DisplayName("120 110 130 135 125 -> 3")
+    @Test
+    void testThree() {
+        assertCount("120 110 130 135 125", 3);
+    }
+
 }
