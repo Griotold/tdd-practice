@@ -5,11 +5,7 @@ import java.util.List;
 
 public class VisibleStudents {
     public int retrieveStudentsCount(String input) {
-        String[] split = input.split(" ");
-        List<Integer> list = new ArrayList<>();
-        for (String num : split) {
-            list.add(Integer.parseInt(num));
-        }
+        List<Integer> list = convertToList(input);
         int max = 0;
         int count = 0;
         for (int num :list){
@@ -19,5 +15,14 @@ public class VisibleStudents {
             }
         }
         return count;
+    }
+
+    private List<Integer> convertToList(String input) {
+        String[] split = input.split(" ");
+        List<Integer> list = new ArrayList<>();
+        for (String num : split) {
+            list.add(Integer.parseInt(num));
+        }
+        return list;
     }
 }
